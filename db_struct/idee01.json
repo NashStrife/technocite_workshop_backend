@@ -1,0 +1,112 @@
+{
+    "admins" : [
+        {
+            "id" : 1,
+            "name" : "Triptyk",
+            "tva" : {
+                "num" : "",
+                "siren" : "",
+                "rcs" : ""
+            },
+            "contact" : {
+                "street" : "Rue de France",
+                "number" : 2,
+                "box" : "",
+                "zip" : 5000,
+                "town" : "Namur",
+                "country" : "Belgium",
+                "mail" : "",
+                "phoneMain" : "",
+                "phoneSec" : "",
+                "fax" : "",
+                "web" : ""
+            },
+            "contactPerson" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "function" : "",
+                "mail" : "",
+                "phoneMain" : "",
+                "phoneSec" : ""
+            },
+            "customers" : [1, 5, 6],
+            "paymentInfo" : [{
+                    "type" : "bank",
+                    "iban" : "BE02589674859",
+                    "bic" : "AFR",
+                    "mail" : ""
+                },{
+                    "type" : "paypal",
+                    "iban" : "",
+                    "bic" : "",
+                    "mail" : "mail@gmail.com"
+                }
+            ],
+            "templates" : {
+                "bill" : {
+                    "title" : "Template 01",
+                    "link" : "template01.html"
+                },
+                "quotation" : {
+                    "title" : "Template 01",
+                    "link" : "template01.html"
+                }
+            }
+        }
+    ],
+    "customers" : [
+        {
+            "id" : 1,
+            "name" : "",
+            "isCompany" : true,
+            "tva" : {
+                "num" : "",
+                "siren" : "",
+                "rcs" : ""
+            },
+            "billingInfo" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "street" : "",
+                "number" : 24,
+                "box" : "",
+                "zip" : 5000,
+                "town" : "",
+                "country" : "",
+                "mail" : "",
+                "phoneMain" : "",
+                "phoneSec" : "",
+                "fax" : ""
+            },
+            "deliveryInfo" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "street" : "",
+                "number" : 10,
+                "box" : "",
+                "zip" : 6000,
+                "town" : "",
+                "country" : "",
+                "mail" : "",
+                "phoneMain" : "",
+                "phoneSec" : "",
+                "fax" : ""
+            },
+            "contactPerson" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "function" : "",
+                "mail" : "",
+                "phoneMain" : "",
+                "phoneSec" : ""
+            },
+            "bills" : ["20160629-001", "20160412-012"],
+            "quotations" : ["20160621-001", "20160408-012"],
+            "memo" : ""
+        }
+    ]
+}

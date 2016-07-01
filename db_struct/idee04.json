@@ -1,0 +1,128 @@
+{
+    "company" : {
+        "name" : "Triptyk", // dénomination sociale
+        "logo" : "tripty_logo.png", // logo à afficher sur les factures
+        "tva" : {
+            "num" : "",
+            "siren" : "",
+            "rcs" : ""
+        },
+        "contact" : {
+            "street" : "Rue de France",
+            "number" : 2,
+            "box" : "",
+            "zip" : 5000,
+            "town" : "Namur",
+            "country" : "Belgium",
+            "mail" : "",
+            "phoneMain" : "",
+            "phoneSec" : "",
+            "fax" : "",
+            "web" : ""
+        },
+        "contactPerson" : {
+            "civility" : "",
+            "firstname" : "",
+            "lastname" : "",
+            "function" : "",
+            "mail" : "",
+            "phoneMain" : "",
+            "phoneSec" : ""
+        },
+        "customers" : [
+            {
+                "name" : "", // nom de référence
+                "isCompany" : true, 
+                "tva" : {   // if(isCompany)
+                    "num" : "",
+                    "siren" : "",
+                    "rcs" : ""
+                },
+                "billingInfo" : { // coordonnées de facturation
+                    "civility" : "",
+                    "firstname" : "",
+                    "lastname" : "",
+                    "street" : "",
+                    "number" : 24,
+                    "box" : "",
+                    "zip" : 5000,
+                    "town" : "",
+                    "country" : "",
+                    "mail" : "",
+                    "phoneMain" : "",
+                    "phoneSec" : "",
+                    "fax" : ""
+                },
+                "deliveryInfo" : { // coordonnées de de livraison
+                    "civility" : "",
+                    "firstname" : "",
+                    "lastname" : "",
+                    "street" : "",
+                    "number" : 10,
+                    "box" : "",
+                    "zip" : 6000,
+                    "town" : "",
+                    "country" : "",
+                    "mail" : "",
+                    "phoneMain" : "",
+                    "phoneSec" : "",
+                    "fax" : ""
+                },
+                "contactPerson" : {
+                    "civility" : "",
+                    "firstname" : "",
+                    "lastname" : "",
+                    "function" : "", // if(isCompany)
+                    "mail" : "",
+                    "phoneMain" : "",
+                    "phoneSec" : ""
+                },
+                "bills" : [
+                    {
+                        "link" : "20160629-001", // noms des .pdf stockés sur le serveur
+                        "state" : true,
+                        "createdAt" : "29-06-2016"
+                    }
+                ], 
+                "quotations" : [
+                    {
+                        "link" : "20160621-001", // noms des .pdf stockés sur le serveur
+                        "createdAt" : "21-06-2016"
+                    },{
+                        "link" : "20160408-012",
+                        "createdAt" : "08-04-2016"
+                    }
+                ], 
+                "memo" : "Client de longue date",
+                "createdAt" : "2016-03-25", // date de création de l'user
+                "updatedAt" : "" // date de dernière modif
+            }
+        ],
+        "paymentInfo" : {
+            "bank" : [
+                {
+                    "name" : "Belfius Account",
+                    "iban" : "BE02589674859",
+                    "bic" : "AFR"
+                },
+                {
+                    "name" : "Fortis Account",
+                    "iban" : "BE250650879685",
+                    "bic" : "DCF"
+                }
+            ],
+            "paypal" : [
+                {
+                    "name" : "Paypal 01",
+                    "mail" : "mail@gmail.com"
+                }
+            ]
+        },
+        "templates" : {
+            "bill" : 1, // numéro du template [pour l'instant juste une palette de couleurs]
+            "quotation" : 3
+        },
+        "createdAt" : "2016-02-14", // date de création du compte admin Date.now()
+        "updatedAt" : "2016-06-08" // date de modif des infos persos
+    }
+}
