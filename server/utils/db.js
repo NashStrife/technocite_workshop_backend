@@ -7,7 +7,7 @@ let db = function(){
         // when we call db.config()
         config: function(){
             // define the url of the db
-            mongoose.connect('mongodb://localhost/restos');
+            mongoose.connect('mongodb://localhost/crmcompany');
             // connection to the db
             let db = mongoose.connection;
             db.on('error', logger.warn.bind(logger,'Connection Error'));

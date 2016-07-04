@@ -44,7 +44,7 @@ let urlValidator = [
 ];
 
 // creation of the model of the db
-let restoModel = function() {
+let companyModel = function() {
     // new Schema with definition of the data
     let schema = mongoose.Schema({
         name : {
@@ -66,7 +66,7 @@ let restoModel = function() {
                 validate : numberValidator
             },
             zip: {
-                type : Number,
+                type : String,
                 required : true,
                 validate : numberValidator
             },
@@ -110,7 +110,7 @@ let restoModel = function() {
         var self = this;
         // use the find function of the constructor from the model
         this.constructor.find({
-            'address.street': self.address.street,
+            'customers.billingInfo.street': self.address.street,
             'address.number': self.address.number,
             'address.zip': self.address.zip,
             'address.town': self.address.town,
