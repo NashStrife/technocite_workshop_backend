@@ -12,7 +12,8 @@ var companies = {
     "tva" : {
         "num" : "BE 0214.563.254",
         "siren" : "",
-        "rcs" : ""
+        "rcs" : "",
+        "percent" : 21
     },
     "contact" : {
         "street" : "Ma Rue",
@@ -86,15 +87,18 @@ var companies = {
                 {
                     "link" : "20160629-01001",
                     "state" : true,
-                    "createdAt" : "29-06-2016"
+                    "createdAt" : "29-06-2016",
+                    "payedAt" : "31-06-2016"
                 }
             ], 
             "quotations" : [
                 {
                     "link" : "20160621-01001",
+                    "state" : true,
                     "createdAt" : "21-06-2016"
                 },{
                     "link" : "20160408-01001",
+                    "state" : false,
                     "createdAt" : "08-04-2016"
                 }
             ], 
@@ -160,9 +164,11 @@ var companies = {
             "quotations" : [
                 {
                     "link" : "20160415-01002",
+                    "state" : true,
                     "createdAt" : "15-04-2016"
                 },{
                     "link" : "20160502-01002",
+                    "state" : true,
                     "createdAt" : "02-05-2016"
                 }
             ], 
