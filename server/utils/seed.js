@@ -86,7 +86,9 @@ var companies = {
                 {
                     "link" : "20160629-01001",
                     "state" : true,
+                    "quotation_id" : 0,
                     "createdAt" : "2016-06-29",
+                    "deadline" : "2016-07-10",
                     "payedAt" : "2016-06-31"
                 }
             ], 
@@ -153,12 +155,16 @@ var companies = {
                 {
                     "link" : "20160425-01002",
                     "state" : true,
+                    "quotation_id" : 0,
                     "createdAt" : "2016-04-25",
+                    "deadline" : "2016-05-10",
                     "payedAt" : "2016-04-31"
                 },{
                     "link" : "20160512-01002",
                     "state" : false,
+                    "quotation_id" : 1,
                     "createdAt" : "2016-05-12",
+                    "deadline" : "2016-05-22",
                     "payedAt" : ""
                 }
             ], 
