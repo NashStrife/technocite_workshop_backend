@@ -1,52 +1,203 @@
-var Resto = require('../api/restos/model');
+var Company = require('../api/crm/model');
 
 var _ = require('lodash');
 var logger = require('./logger');
 
 logger.log('Seeding the Database');
 
-// we don't define the updatedAt Date cause it is automatically updated thx to Date.now in the model
-var restos = [{
-    name: 'jade de chine',
-    address: {
-        street: "Rue d'Havré",
-        number: 23,
-        zip: 7000,
-        town: "Mons",
-        country: "Belgium"
+var companies = {
+    "name" : "Ma société",
+    "pwd" : "pass123",
+    "logo" : "logo.png",
+    "tva" : {
+        "num" : "BE 0214.563.254",
+        "siren" : "",
+        "rcs" : ""
     },
-    cookTyme: ["asiatique", "Vientanienne"],
-    comments: ["excellent", "superbe ambiance"],
-    pictures: [{
-        title: 'Nouvel an chinois',
-        link: 'jade2016.jpg'
-    }, {
-        title: 'Nouvel an chinois',
-        link: 'jade2015.jpg'
-    }],
-    url: 'http://www.jadechine.be',
-    createdAt: Date.now()
-}, {
-    name: 'La bergerie',
-    address: {
-        street: "Rue des canadiens",
-        number: 239,
-        zip: 7020,
-        town: "Hyon",
-        country: "Belgium"
+    "contact" : {
+        "street" : "Ma Rue",
+        "number" : 1,
+        "box" : "",
+        "zip" : "1000",
+        "town" : "Ma Ville",
+        "country" : "Belgique",
+        "mail" : "mon.mail@gmail.com",
+        "phoneMain" : "+32 45 256 365",
+        "phoneSec" : "+32 24 569 874",
+        "fax" : "071 25 96 78",
+        "web" : "http://www.monsite.be"
     },
-    cookTyme: ["grecque", "farnçaise"],
-    comments: ["pas bon", "moyen qualité"],
-    pictures: [{
-        title: 'Nouvel',
-        link: 'bergerie2016.jpg'
-    }, {
-        title: 'Mes 40 ans',
-        link: 'bergerie2015.jpg'
-    }],
-    url: 'http://www.jadechine.be',
-    createdAt: Date.now()
-}];
+    "contactPerson" : {
+        "civility" : "Monsieur",
+        "firstname" : "John",
+        "lastname" : "Doe",
+        "function" : "Gérant",
+        "mail" : "john.doe@gmail.com",
+        "phoneMain" : "+32 493 452 365",
+        "phoneSec" : ""
+    },
+    "customers" : [
+        {
+            "name" : "Sébastien Jacques",
+            "isCompany" : false, 
+            "tva" : {
+                "num" : "",
+                "siren" : "",
+                "rcs" : ""
+            },
+            "billingInfo" : {
+                "civility" : "Monsieur",
+                "firstname" : "Sébastien",
+                "lastname" : "Jacques",
+                "street" : "Rue Albert Bodson",
+                "number" : 38,
+                "box" : "",
+                "zip" : "6280",
+                "town" : "Gerpinnes",
+                "country" : "Belgique",
+                "mail" : "jac.sebastien@gmail.com",
+                "phoneMain" : "0493 17 24 69",
+                "phoneSec" : "",
+                "fax" : ""
+            },
+            "deliveryInfo" : {
+                "civility" : "Monsieur",
+                "firstname" : "Sébastien",
+                "lastname" : "Jacques",
+                "company" : "",
+                "street" : "Rue Albert Bodson",
+                "number" : 38,
+                "box" : "",
+                "zip" : "6280",
+                "town" : "Gerpinnes",
+                "country" : "Belgique",
+            },
+            "contactPerson" : {
+                "civility" : "Monsieur",
+                "firstname" : "Sébastien",
+                "lastname" : "Jacques",
+                "function" : "",
+                "mail" : "jac.sebastien@gmail.com",
+                "phoneMain" : "0493 17 24 69",
+                "phoneSec" : "",
+                "pwd" : "pass123"
+            },
+            "bills" : [
+                {
+                    "link" : "20160629-01001",
+                    "state" : true,
+                    "createdAt" : "29-06-2016"
+                }
+            ], 
+            "quotations" : [
+                {
+                    "link" : "20160621-01001",
+                    "createdAt" : "21-06-2016"
+                },{
+                    "link" : "20160408-01001",
+                    "createdAt" : "08-04-2016"
+                }
+            ], 
+            "memo" : "Le premier client",
+            "createdAt" : "2016-03-25",
+            "updatedAt" : ""
+        },{
+            "name" : "Blizzard",
+            "isCompany" : true, 
+            "tva" : {
+                "num" : "BE 0851.968.717",
+                "siren" : "",
+                "rcs" : ""
+            },
+            "billingInfo" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "street" : "Beechavenue",
+                "number" : 131,
+                "box" : "D",
+                "zip" : "1119 RB",
+                "town" : "Schiphol-Rijk",
+                "country" : "Pays-Bas",
+                "mail" : "infos@blizzard.com",
+                "phoneMain" : "+32 25 258 963",
+                "phoneSec" : "",
+                "fax" : ""
+            },
+            "deliveryInfo" : {
+                "civility" : "",
+                "firstname" : "",
+                "lastname" : "",
+                "company" : "",
+                "street" : "Beechavenue",
+                "number" : 131,
+                "box" : "D",
+                "zip" : "1119 RB",
+                "town" : "Schiphol-Rijk",
+                "country" : "Pays-Bas",
+            },
+            "contactPerson" : {
+                "civility" : "Monsieur",
+                "firstname" : "Bart",
+                "lastname" : "Smith",
+                "function" : "Management",
+                "mail" : "bartsmith@blizzard.com",
+                "phoneMain" : "+32 254 896 456",
+                "phoneSec" : "",
+                "pwd" : "pass123"
+            },
+            "bills" : [
+                {
+                    "link" : "20160425-01002",
+                    "state" : true,
+                    "createdAt" : "25-04-2016"
+                },{
+                    "link" : "20160512-01002",
+                    "state" : false,
+                    "createdAt" : "12-05-2016"
+                }
+            ], 
+            "quotations" : [
+                {
+                    "link" : "20160415-01002",
+                    "createdAt" : "15-04-2016"
+                },{
+                    "link" : "20160502-01002",
+                    "createdAt" : "02-05-2016"
+                }
+            ], 
+            "memo" : "Très gros client",
+            "createdAt" : "2016-03-25",
+            "updatedAt" : ""
+        }
+    ],
+    "paymentInfo" : {
+        "bank" : [
+            {
+                "name" : "Belfius Account",
+                "iban" : "BE02589674859",
+                "bic" : "AFR"
+            },
+            {
+                "name" : "Fortis Account",
+                "iban" : "BE250650879685",
+                "bic" : "DCF"
+            }
+        ],
+        "paypal" : [
+            {
+                "name" : "Paypal 01",
+                "mail" : "mail@gmail.com"
+            }
+        ]
+    },
+    "templates" : {
+        "bill" : 1,
+        "quotation" : 1
+    },
+    "createdAt" : "2016-07-04",
+    "updatedAt" : ""
+};
 
 
 // add elements to the db merging the model with data created before
@@ -66,7 +217,7 @@ var createDoc = function(model, doc) {
 var cleanDB = function() {
     logger.log('... cleaning the DB');
     // clean thx to the model imported at the begining of the file
-    var cleanPromises = [Resto]
+    var cleanPromises = [Company]
         // list all resto corresponding to the model
         .map(function(model) {
             // and remove it
@@ -77,20 +228,20 @@ var cleanDB = function() {
 };
 
 // function to create new restos
-var createRestos = function(data) {
+var createCompanies = function(data) {
     // new promise
-    var promises = restos.map(function(resto) {
+    var promises = companies.map(function(company) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
-        return createDoc(Resto, resto);
+        return createDoc(Company, company);
     });
 
     // when all promises corresponding to "promises" are done
     return Promise.all(promises)
         // then do the next step
-        .then(function(restos) {
+        .then(function(companies) {
             // return all data merged thx to lodash
             return _.merge({
-                restos: restos
+                companies: companies
                 // or if no data return a void object
             }, data || {});
         });
@@ -98,6 +249,6 @@ var createRestos = function(data) {
 
 // each time we clean the db, then create new one with default data
 cleanDB()
-    .then(createRestos)
+    .then(createCompanies)
     .then(logger.log.bind(logger))
     .catch(logger.log.bind(logger));
