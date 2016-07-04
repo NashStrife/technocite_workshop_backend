@@ -12,8 +12,7 @@ var companies = {
     "tva" : {
         "num" : "BE 0214.563.254",
         "siren" : "",
-        "rcs" : "",
-        "percent" : 21
+        "rcs" : ""
     },
     "contact" : {
         "street" : "Ma Rue",
@@ -77,7 +76,7 @@ var companies = {
                 "civility" : "Monsieur",
                 "firstname" : "Sébastien",
                 "lastname" : "Jacques",
-                "function" : "",
+                "post" : "",
                 "mail" : "jac.sebastien@gmail.com",
                 "phoneMain" : "0493 17 24 69",
                 "phoneSec" : "",
@@ -87,23 +86,23 @@ var companies = {
                 {
                     "link" : "20160629-01001",
                     "state" : true,
-                    "createdAt" : "29-06-2016",
-                    "payedAt" : "31-06-2016"
+                    "createdAt" : "2016-06-29",
+                    "payedAt" : "2016-06-31"
                 }
             ], 
             "quotations" : [
                 {
                     "link" : "20160621-01001",
                     "state" : true,
-                    "createdAt" : "21-06-2016"
+                    "createdAt" : "2016-06-21"
                 },{
                     "link" : "20160408-01001",
                     "state" : false,
-                    "createdAt" : "08-04-2016"
+                    "createdAt" : "2016-04-08"
                 }
             ], 
             "memo" : "Le premier client",
-            "createdAt" : "2016-03-25",
+            "createdAt" : Date.now(),
             "updatedAt" : ""
         },{
             "name" : "Blizzard",
@@ -144,7 +143,7 @@ var companies = {
                 "civility" : "Monsieur",
                 "firstname" : "Bart",
                 "lastname" : "Smith",
-                "function" : "Management",
+                "post" : "Management",
                 "mail" : "bartsmith@blizzard.com",
                 "phoneMain" : "+32 254 896 456",
                 "phoneSec" : "",
@@ -154,26 +153,28 @@ var companies = {
                 {
                     "link" : "20160425-01002",
                     "state" : true,
-                    "createdAt" : "25-04-2016"
+                    "createdAt" : "2016-04-25",
+                    "payedAt" : "2016-04-31"
                 },{
                     "link" : "20160512-01002",
                     "state" : false,
-                    "createdAt" : "12-05-2016"
+                    "createdAt" : "2016-05-12",
+                    "payedAt" : ""
                 }
             ], 
             "quotations" : [
                 {
                     "link" : "20160415-01002",
                     "state" : true,
-                    "createdAt" : "15-04-2016"
+                    "createdAt" : "2016-04-15"
                 },{
                     "link" : "20160502-01002",
                     "state" : true,
-                    "createdAt" : "02-05-2016"
+                    "createdAt" : "2016-05-02"
                 }
             ], 
             "memo" : "Très gros client",
-            "createdAt" : "2016-03-25",
+            "createdAt" : Date.now(),
             "updatedAt" : ""
         }
     ],
@@ -201,7 +202,7 @@ var companies = {
         "bill" : 1,
         "quotation" : 1
     },
-    "createdAt" : "2016-07-04",
+    "createdAt" : Date.now(),
     "updatedAt" : ""
 };
 
