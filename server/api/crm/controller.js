@@ -17,10 +17,10 @@ exports.post = function(req, res, next) {
     logger.log("controller post");
     
     // we create a new model with the data to add to the db
-    let resto = new model(req.body);
+    let company = new model(req.body);
     
     // and add it to the db
-    resto.save(function(err, data) {
+    company.save(function(err, data) {
         let message = {
             message: 'Document saved'
         };
