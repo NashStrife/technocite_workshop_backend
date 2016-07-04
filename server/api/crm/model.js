@@ -50,14 +50,15 @@ let companyModel = function() {
         name : {
             type : String,
             required : true,
-            lowercase : true,
-            validate : stringValidator
+            lowercase : true
         },
         pwd : {
             type : String,
             required : true
         },
-        logo : String,
+        logo : {
+            type : String
+        },
         tva : {
             num : {
                 type : String,
@@ -81,7 +82,7 @@ let companyModel = function() {
                 required : true
             },
             box : {
-                type : String,
+                type : String
             },
             zip : {
                 type : String,
@@ -114,7 +115,7 @@ let companyModel = function() {
             web : {
                 type : String
             }
-        },
+        },  // end objet contact
         contactPerson : {
             civility : {
                 type : String,
@@ -145,14 +146,16 @@ let companyModel = function() {
             phoneSec : {
                 type : String
             }
-        },
+        }, //end objet contactPerson
         customers : [{
             name : {
                 type : String,
                 required : true,
                 lowercase : true
             },
-            isCompany : Boolean,
+            isCompany : {
+                type : Boolean
+            },
             tva : {
                 num : {
                     type : String,
@@ -164,7 +167,7 @@ let companyModel = function() {
                 rcs : {
                     type : String
                 }
-            },
+            }, // end tva
             billingInfo : {
                 civility : {
                     type : String,
@@ -220,7 +223,7 @@ let companyModel = function() {
                 fax : {
                     type : String
                 }
-            },
+            },  // end billingInfo
             deliveryInfo : {
                 civility : {
                     type : String,
@@ -266,7 +269,7 @@ let companyModel = function() {
                     required : true,
                     lowercase: true
                 }
-            },
+            },  // end deliveryInfo
             contactPerson : {
                  civility : {
                     type : String,
@@ -301,21 +304,91 @@ let companyModel = function() {
                     type : String,
                     required : true
                 }
+            }, // end contactPerson
+            bills : [{
+                link : {
+                    type : String,
+                    required : true
+                },
+                state : {
+                    type : boolean,
+                    required : true
+                },
+                createdAt : {
+                    type : Date,
+                    required : true
+                },
+                payedAt : {
+                    type : Date
+                }
+            }],
+            quotations : [{
+                link : {
+                    type : String,
+                    required : true
+                },
+                state : {
+                    type : boolean,
+                    required : true
+                },
+                createdAt : {
+                    type : Date, 
+                    required : true
+                }
+            }],
+            memo : {
+                type : String
             },
-            bills : {
-                
+            createdAt : {
+                type : Date,
+                required : true
+            },
+            // updateAt will be auto updated when we modify data with the current date
+            updatedAt : {
+                type : Date,
+                default : Date.now
             }
-        }]
-
-        
-        
-        createdAt : {
-            type : Date,
-            required : true,
-            validate : dateValidator
+        }],
+        paymentInfo : {
+            bank : [{
+                name : {
+                    type : String,
+                    required : true
+                },
+                iban : {
+                    type : String,
+                    required : true
+                },
+                bic : {
+                    type : String,
+                    required : true
+                }
+            }],
+            paypal : [{
+                name : {
+                    type : String,
+                    required : true
+                },
+                mail : {
+                    type : String, 
+                    required : true
+                }
+            }]
         },
-        // updateAt will be auto updated when we modify data with the current date
-        updatedAt : { type : Date, default : Date.now}
+        templates : {
+            bill : {
+                type : Number
+            },
+            quotation : {
+                type : Number
+            }
+        },
+        createdAt : {
+            type : Date
+        },
+        updatedAt : {
+            type : Date
+        }
     });
 
     // we use a hook to say "when you want to save data using the model do this before"
