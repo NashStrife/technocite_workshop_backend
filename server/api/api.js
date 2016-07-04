@@ -1,5 +1,5 @@
 let router = require('express').Router();
 
-router.use('/restos', require('./restos/routes'));
+router.use('/crm', require('./crm/routes'));
 
 module.exports = router;
