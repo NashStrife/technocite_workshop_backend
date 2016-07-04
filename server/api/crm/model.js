@@ -48,53 +48,267 @@ let companyModel = function() {
     // new Schema with definition of the data
     let schema = mongoose.Schema({
         name : {
-            type: String,
-            required: true,
-            lowercase: true,
-            validate: stringValidator
+            type : String,
+            required : true,
+            lowercase : true,
+            validate : stringValidator
         },
-        address : {
-            street: {
+        pwd : {
+            type : String,
+            required : true
+        },
+        logo : String,
+        tva : {
+            num : {
                 type : String,
-                required : true,
-                lowercase: true,
-                validate: stringValidator
+                required : true
             },
-            number: {
-                type : Number,
-                required : true,
-                validate : numberValidator
+            siren : {
+                type : String
             },
-            zip: {
-                type : String,
-                required : true,
-                validate : numberValidator
-            },
-            town: {
-                type : String,
-                required : true,
-                lowercase: true,
-                validate: stringValidator
-            },
-            country: {
-                type : String,
-                required : true,
-                lowercase: true,
-                validate: stringValidator
+            rcs : {
+                type : String
             }
         },
-        cookType : Array,
-        quote : {
-            type : Number,
-            validate : quoteValidator
+        contact : {
+            street : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            number : {
+                type : Number,
+                required : true
+            },
+            box : {
+                type : String,
+            },
+            zip : {
+                type : String,
+                required : true
+            },
+            town : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            country : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            mail : {
+                type : String,
+                required : true
+            },
+            phoneMain : {
+                type : String,
+                required : true
+            },
+            phoneSec : {
+                type : String
+            },
+            fax : {
+                type : String
+            },
+            web : {
+                type : String
+            }
         },
-        comments : Array,
-        // picture can have a variety of data type
-        pictures :mongoose.Schema.Types.Mixed,
-        url : {
-            type : String,
-            validate : urlValidator
+        contactPerson : {
+            civility : {
+                type : String,
+                required : true
+            },
+            firstname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            lastname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            post : {
+                type : String,
+                lowercase : true
+            },
+            mail : {
+                type : String,
+                required : true
+            },
+            phoneMain : {
+                type : String,
+                required : true
+            },
+            phoneSec : {
+                type : String
+            }
         },
+        customers : [{
+            name : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            isCompany : Boolean,
+            tva : {
+                num : {
+                    type : String,
+                    required : true
+                },
+                siren : {
+                    type : String
+                },
+                rcs : {
+                    type : String
+                }
+            },
+            billingInfo : {
+                civility : {
+                    type : String,
+                    required : true
+                },
+                firstname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                lastname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                street : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                },
+                number : {
+                    type : Number,
+                    required : true
+                },
+                box : {
+                    type : String
+                },
+                zip : {
+                    type : String,
+                    required : true
+                },
+                town : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                },
+                country : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                },
+                mail : {
+                    type : String,
+                    required : true
+                },
+                phoneMain : {
+                    type : String,
+                    required : true
+                },
+                phoneSec : {
+                    type : String
+                },
+                fax : {
+                    type : String
+                }
+            },
+            deliveryInfo : {
+                civility : {
+                    type : String,
+                    required : true
+                },
+                firstname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                lastname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                company : {
+                    type : String,
+                    required : true
+                },
+                street : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                },
+                number : {
+                    type : Number,
+                    required : true
+                },
+                box : {
+                    type : String
+                },
+                zip : {
+                    type : String,
+                    required : true
+                },
+                town : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                },
+                country : {
+                    type : String,
+                    required : true,
+                    lowercase: true
+                }
+            },
+            contactPerson : {
+                 civility : {
+                    type : String,
+                    required : true
+                },
+                firstname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                lastname : {
+                    type : String,
+                    required : true,
+                    lowercase : true
+                },
+                post : {
+                    type : String,
+                    lowercase : true
+                },
+                mail : {
+                    type : String,
+                    required : true
+                },
+                phoneMain : {
+                    type : String,
+                    required : true
+                },
+                phoneSec : {
+                    type : String
+                },
+                pwd : {
+                    type : String,
+                    required : true
+                }
+            },
+            bills : {
+                
+            }
+        }]
+
+        
+        
         createdAt : {
             type : Date,
             required : true,
