@@ -31,7 +31,7 @@ var companies = {
         "civility" : "Monsieur",
         "firstname" : "John",
         "lastname" : "Doe",
-        "function" : "Gérant",
+        "post" : "Gérant",
         "mail" : "john.doe@gmail.com",
         "phoneMain" : "+32 493 452 365",
         "phoneSec" : ""
