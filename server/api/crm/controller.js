@@ -36,7 +36,7 @@ exports.update = function(req, res, next) {
     logger.log("controller Update")
     
     // update the data corresponding to the id with the new one in the request
-    model.findByIdAndUpdate(req.body._id, req.body, 
+    model.findByIdAndUpdate(req.params.id, req.body, 
         function(err, doc) {
             let message = {
                 message: 'Document upated'

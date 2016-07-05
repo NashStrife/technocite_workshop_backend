@@ -4,8 +4,7 @@ let controller = require('./controller');
 
 router.route('/')
 .get(controller.get)
-.post(controller.post)
-.put(controller.update);
+.post(controller.post);
 
 // router.route('/admin')
 // .put(controller.adminUpdate);
@@ -15,6 +14,7 @@ router.route('/search')
 .get(controller.dynamicSearch);
 
 router.route('/:id')
+.put(controller.update)
 .delete(controller.deleteById);
 
 
