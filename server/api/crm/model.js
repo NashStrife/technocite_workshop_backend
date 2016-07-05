@@ -311,7 +311,7 @@ let companyModel = function() {
                     required : true
                 },
                 state : {
-                    type : boolean,
+                    type : Boolean,
                     required : true
                 },
                 createdAt : {
@@ -328,7 +328,7 @@ let companyModel = function() {
                     required : true
                 },
                 state : {
-                    type : boolean,
+                    type : Boolean,
                     required : true
                 },
                 createdAt : {
