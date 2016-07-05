@@ -204,44 +204,44 @@ let companyModel = function() {
                 required : true
             }
         },
-         bills : [{
-                link : {
-                    type : String,
-                    required : true
-                },
-                state : {
-                    type : Boolean,
-                    required : true
-                },
-                quotation_id : {
-                    type : Number
-                },
-                createdAt : {
-                    type : Date,
-                    required : true
-                },
-                deadLine : {
-                    type : Date
-                },
-                payedAt : {
-                    type : Date
-                }
-            }],
-            quotations : [{
-                link : {
-                    type : String,
-                    required : true
-                },
-                state : {
-                    type : Boolean,
-                    required : true
-                },
-                createdAt : {
-                    type : Date, 
-                    required : true
-                }
-            }],
-            memo : {
+        bills : [{
+            link : {
+                type : String,
+                required : true
+            },
+            state : {
+                type : Boolean,
+                required : true
+            },
+            quotation_id : {
+                type : Number
+            },
+            createdAt : {
+                type : Date,
+                required : true
+            },
+            deadLine : {
+                type : Date
+            },
+            payedAt : {
+                type : Date
+            }
+        }],
+        quotations : [{
+            link : {
+                type : String,
+                required : true
+            },
+            state : {
+                type : Boolean,
+                required : true
+            },
+            createdAt : {
+                type : Date, 
+                required : true
+            }
+        }],
+        memo : {
             type : String
         },
         createdAt : {
@@ -259,10 +259,6 @@ let companyModel = function() {
             type : String,
             required : true,
             lowercase : true
-        },
-        pwd : {
-            type : String,
-            required : true
         },
         logo : {
             type : String
@@ -353,6 +349,10 @@ let companyModel = function() {
             },
             phoneSec : {
                 type : String
+            },
+            pwd : {
+                type : String,
+                required : true
             }
         }, 
         customers : [Customers],
@@ -404,11 +404,11 @@ let companyModel = function() {
         var self = this;
         // use the find function of the constructor from the model
         this.constructor.find({
-            'customers.billingInfo.street': self.customers.billingInfo.street,
-            'customers.billingInfo.number': self.customers.billingInfo.number,
-            'customers.billingInfo.zip': self.customers.billingInfo.zip,
-            'customers.billingInfo.town': self.customers.billingInfo.town,
-            'customers.billingInfo.country': self.customers.billingInfo.country
+            'billingInfo.street': self.billingInfo.street,
+            'billingInfo.number': self.billingInfo.number,
+            'billingInfo.zip': self.billingInfo.zip,
+            'billingInfo.town': self.billingInfo.town,
+            'billingInfo.country': self.billingInfo.country
         }, function(err, docs) {
             // if the address is different
             if (!docs.length) {

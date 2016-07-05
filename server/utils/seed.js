@@ -7,7 +7,6 @@ logger.log('Seeding the Database');
 
 var companies = {
     "name" : "Ma société",
-    "pwd" : "pass123",
     "logo" : "logo.png",
     "tva" : {
         "num" : "BE 0214.563.254",
@@ -34,7 +33,8 @@ var companies = {
         "post" : "Gérant",
         "mail" : "john.doe@gmail.com",
         "phoneMain" : "+32 493 452 365",
-        "phoneSec" : ""
+        "phoneSec" : "",
+        "pwd" : "pass123",
     },
     "customers" : [
         {
