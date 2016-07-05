@@ -53,12 +53,12 @@ let companyModel = function() {
             lowercase : true
         },
         isCompany : {
-            type : Boolean
+            type : Boolean,
+            required : true
         },
         tva : {
             num : {
-                type : String,
-                required : true
+                type : String
             },
             siren : {
                 type : String
@@ -69,17 +69,14 @@ let companyModel = function() {
         },
         billingInfo : {
             civility : {
-                type : String,
-                required : true
+                type : String
             },
             firstname : {
                 type : String,
-                required : true,
                 lowercase : true
             },
             lastname : {
                 type : String,
-                required : true,
                 lowercase : true
             },
             street : {
@@ -125,22 +122,18 @@ let companyModel = function() {
         },
         deliveryInfo : {
             civility : {
-                type : String,
-                required : true
+                type : String
             },
             firstname : {
                 type : String,
-                required : true,
                 lowercase : true
             },
             lastname : {
                 type : String,
-                required : true,
                 lowercase : true
             },
             company : {
-                type : String,
-                required : true
+                type : String
             },
             street : {
                 type : String,

@@ -5,7 +5,7 @@ var logger = require('./logger');
 
 logger.log('Seeding the Database');
 
-var companies = {
+var companies = [{
     "name" : "Ma société",
     "logo" : "logo.png",
     "tva" : {
@@ -210,7 +210,7 @@ var companies = {
     },
     "createdAt" : Date.now(),
     "updatedAt" : ""
-};
+}];
 
 
 // add elements to the db merging the model with data created before
