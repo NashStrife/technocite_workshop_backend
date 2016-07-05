@@ -147,180 +147,184 @@ let companyModel = function() {
                 type : String
             }
         }, //end objet contactPerson
-        customers : [{
-            name : {
-                type : String,
-                required : true,
-                lowercase : true
-            },
-            isCompany : {
-                type : Boolean
-            },
-            tva : {
-                num : {
-                    type : String,
-                    required : true
-                },
-                siren : {
-                    type : String
-                },
-                rcs : {
-                    type : String
-                }
-            }, // end tva
-            billingInfo : {
-                civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
+        customers : [
+            {
+                name : {
                     type : String,
                     required : true,
                     lowercase : true
                 },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
+                isCompany : {
+                    type : Boolean
                 },
-                street : {
-                    type : String,
-                    required : true,
-                    lowercase: true
+                tva : {
+                    num : {
+                        type : String,
+                        required : true
+                    },
+                    siren : {
+                        type : String
+                    },
+                    rcs : {
+                        type : String
+                    }
+                }, // end tva
+                billingInfo : {
+                    civility : {
+                        type : String,
+                        required : true
+                    },
+                    firstname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    lastname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    street : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    },
+                    number : {
+                        type : Number,
+                        required : true
+                    },
+                    box : {
+                        type : String
+                    },
+                    zip : {
+                        type : String,
+                        required : true
+                    },
+                    town : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    },
+                    country : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    },
+                    mail : {
+                        type : String,
+                        required : true
+                    },
+                    phoneMain : {
+                        type : String,
+                        required : true
+                    },
+                    phoneSec : {
+                        type : String
+                    },
+                    fax : {
+                        type : String
+                    }
+                },  // end billingInfo
+                deliveryInfo : {
+                    civility : {
+                        type : String,
+                        required : true
+                    },
+                    firstname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    lastname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    company : {
+                        type : String,
+                        required : true
+                    },
+                    street : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    },
+                    number : {
+                        type : Number,
+                        required : true
+                    },
+                    box : {
+                        type : String
+                    },
+                    zip : {
+                        type : String,
+                        required : true
+                    },
+                    town : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    },
+                    country : {
+                        type : String,
+                        required : true,
+                        lowercase: true
+                    }
+                },  // end deliveryInfo
+                contactPerson : {
+                    civility : {
+                        type : String,
+                        required : true
+                    },
+                    firstname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    lastname : {
+                        type : String,
+                        required : true,
+                        lowercase : true
+                    },
+                    post : {
+                        type : String,
+                        lowercase : true
+                    },
+                    mail : {
+                        type : String,
+                        required : true
+                    },
+                    phoneMain : {
+                        type : String,
+                        required : true
+                    },
+                    phoneSec : {
+                        type : String
+                    },
+                    pwd : {
+                        type : String,
+                        required : true
+                    }
                 },
-                number : {
-                    type : Number,
-                    required : true
-                },
-                box : {
-                    type : String
-                },
-                zip : {
-                    type : String,
-                    required : true
-                },
-                town : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                country : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                mail : {
-                    type : String,
-                    required : true
-                },
-                phoneMain : {
-                    type : String,
-                    required : true
-                },
-                phoneSec : {
-                    type : String
-                },
-                fax : {
-                    type : String
-                }
-            },  // end billingInfo
-            deliveryInfo : {
-                civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                company : {
-                    type : String,
-                    required : true
-                },
-                street : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                number : {
-                    type : Number,
-                    required : true
-                },
-                box : {
-                    type : String
-                },
-                zip : {
-                    type : String,
-                    required : true
-                },
-                town : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                country : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                }
-            },  // end deliveryInfo
-            contactPerson : {
-                 civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                post : {
-                    type : String,
-                    lowercase : true
-                },
-                mail : {
-                    type : String,
-                    required : true
-                },
-                phoneMain : {
-                    type : String,
-                    required : true
-                },
-                phoneSec : {
-                    type : String
-                },
-                pwd : {
-                    type : String,
-                    required : true
-                }
-            }, // end contactPerson
-            bills : [{
-                link : {
-                    type : String,
-                    required : true
-                },
-                state : {
-                    type : boolean,
-                    required : true
-                },
-                createdAt : {
-                    type : Date,
-                    required : true
-                },
-                payedAt : {
-                    type : Date
-                }
+                bills : [
+                    {
+                        link : {
+                            type : String,
+                            required : true
+                        },
+                        state : {
+                            type : boolean,
+                            required : true
+                        },
+                        createdAt : {
+                            type : Date,
+                            required : true
+                        },
+                        payedAt : {
+                            type : Date
+                        }
+                    }
+                ]
             }],
             quotations : [{
                 link : {
