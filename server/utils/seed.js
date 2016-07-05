@@ -215,6 +215,7 @@ var companies = {
 
 // add elements to the db merging the model with data created before
 var createDoc = function(model, doc) {
+    logger.log("... creating Doc");
     // use the promise to manage what we do after
     return new Promise(function(resolve, reject) {
         // prepare data in function of the model and save it into the db
@@ -242,6 +243,7 @@ var cleanDB = function() {
 
 // function to create new restos
 var createCompanies = function(data) {
+    logger.log("... creating Company");
     // new promise
     var promises = companies.map(function(company) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
