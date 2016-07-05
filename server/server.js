@@ -11,6 +11,7 @@ let app = express();
 db.config();
 // if "seed" is set to "true" in the config module
 if (config.seed) {
+    logger.log("config seed");
     // use the seed module to add some data to the db
     require('./utils/seed');
 }

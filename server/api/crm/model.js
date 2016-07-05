@@ -46,7 +46,209 @@ let urlValidator = [
 // creation of the model of the db
 let companyModel = function() {
     // new Schema with definition of the data
-    let schema = mongoose.Schema({
+    let Customers = mongoose.Schema({
+        name : {
+            type : String,
+            required : true,
+            lowercase : true
+        },
+        isCompany : {
+            type : Boolean
+        },
+        tva : {
+            num : {
+                type : String,
+                required : true
+            },
+            siren : {
+                type : String
+            },
+            rcs : {
+                type : String
+            }
+        },
+        billingInfo : {
+            civility : {
+                type : String,
+                required : true
+            },
+            firstname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            lastname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            street : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            number : {
+                type : Number,
+                required : true
+            },
+            box : {
+                type : String
+            },
+            zip : {
+                type : String,
+                required : true
+            },
+            town : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            country : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            mail : {
+                type : String,
+                required : true
+            },
+            phoneMain : {
+                type : String,
+                required : true
+            },
+            phoneSec : {
+                type : String
+            },
+            fax : {
+                type : String
+            }
+        },
+        deliveryInfo : {
+            civility : {
+                type : String,
+                required : true
+            },
+            firstname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            lastname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            company : {
+                type : String,
+                required : true
+            },
+            street : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            number : {
+                type : Number,
+                required : true
+            },
+            box : {
+                type : String
+            },
+            zip : {
+                type : String,
+                required : true
+            },
+            town : {
+                type : String,
+                required : true,
+                lowercase: true
+            },
+            country : {
+                type : String,
+                required : true,
+                lowercase: true
+            }
+        }, 
+        contactPerson : {
+            civility : {
+                type : String,
+                required : true
+            },
+            firstname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            lastname : {
+                type : String,
+                required : true,
+                lowercase : true
+            },
+            post : {
+                type : String,
+                lowercase : true
+            },
+            mail : {
+                type : String,
+                required : true
+            },
+            phoneMain : {
+                type : String,
+                required : true
+            },
+            phoneSec : {
+                type : String
+            },
+            pwd : {
+                type : String,
+                required : true
+            }
+        },
+        bills : [{
+            link : {
+                type : String,
+                required : true
+            },
+            state : {
+                type : Boolean,
+                required : true
+            },
+            createdAt : {
+                type : Date,
+                required : true
+            },
+            payedAt : {
+                type : Date
+            }
+        }],
+        quotations : [{
+            link : {
+                type : String,
+                required : true
+            },
+            state : {
+                type : Boolean,
+                required : true
+            },
+            createdAt : {
+                type : Date, 
+                required : true
+            }
+        }],
+        memo : {
+            type : String
+        },
+        createdAt : {
+            type : Date,
+            required : true
+        },
+        updatedAt : {
+            type : Date,
+            default : Date.now
+        }
+    });
+
+    let Company = mongoose.Schema({
         name : {
             type : String,
             required : true,
@@ -115,7 +317,7 @@ let companyModel = function() {
             web : {
                 type : String
             }
-        },  // end objet contact
+        }, 
         contactPerson : {
             civility : {
                 type : String,
@@ -146,209 +348,8 @@ let companyModel = function() {
             phoneSec : {
                 type : String
             }
-        }, //end objet contactPerson
-        customers : [{
-            name : {
-                type : String,
-                required : true,
-                lowercase : true
-            },
-            isCompany : {
-                type : Boolean
-            },
-            tva : {
-                num : {
-                    type : String,
-                    required : true
-                },
-                siren : {
-                    type : String
-                },
-                rcs : {
-                    type : String
-                }
-            }, // end tva
-            billingInfo : {
-                civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                street : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                number : {
-                    type : Number,
-                    required : true
-                },
-                box : {
-                    type : String
-                },
-                zip : {
-                    type : String,
-                    required : true
-                },
-                town : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                country : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                mail : {
-                    type : String,
-                    required : true
-                },
-                phoneMain : {
-                    type : String,
-                    required : true
-                },
-                phoneSec : {
-                    type : String
-                },
-                fax : {
-                    type : String
-                }
-            },  // end billingInfo
-            deliveryInfo : {
-                civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                company : {
-                    type : String,
-                    required : true
-                },
-                street : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                number : {
-                    type : Number,
-                    required : true
-                },
-                box : {
-                    type : String
-                },
-                zip : {
-                    type : String,
-                    required : true
-                },
-                town : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                },
-                country : {
-                    type : String,
-                    required : true,
-                    lowercase: true
-                }
-            },  // end deliveryInfo
-            contactPerson : {
-                civility : {
-                    type : String,
-                    required : true
-                },
-                firstname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                lastname : {
-                    type : String,
-                    required : true,
-                    lowercase : true
-                },
-                post : {
-                    type : String,
-                    lowercase : true
-                },
-                mail : {
-                    type : String,
-                    required : true
-                },
-                phoneMain : {
-                    type : String,
-                    required : true
-                },
-                phoneSec : {
-                    type : String
-                },
-                pwd : {
-                    type : String,
-                    required : true
-                }
-            },
-            bills : [{
-                link : {
-                    type : String,
-                    required : true
-                },
-                state : {
-                    type : Boolean,
-                    required : true
-                },
-                createdAt : {
-                    type : Date,
-                    required : true
-                },
-                payedAt : {
-                    type : Date
-                }
-            }],
-            quotations : [{
-                link : {
-                    type : String,
-                    required : true
-                },
-                state : {
-                    type : Boolean,
-                    required : true
-                },
-                createdAt : {
-                    type : Date, 
-                    required : true
-                }
-            }],
-            memo : {
-                type : String
-            },
-            createdAt : {
-                type : Date,
-                required : true
-            },
-            // updateAt will be auto updated when we modify data with the current date
-            updatedAt : {
-                type : Date,
-                default : Date.now
-            }
-        }],
+        }, 
+        customers : [Customers],
         paymentInfo : {
             bank : [{
                 name : {
@@ -392,7 +393,7 @@ let companyModel = function() {
     });
 
     // we use a hook to say "when you want to save data using the model do this before"
-    schema.pre('save', function(next) {
+    Customers.pre('save', function(next) {
         // to avoid a scoop problem => this self contain now the data
         var self = this;
         // use the find function of the constructor from the model
@@ -413,9 +414,32 @@ let companyModel = function() {
         });
     });
 
-    // we return the schema called "company" with informations of the schema for the collection "companies" 
-    return mongoose.model('company', schema,'companies');
+    // we return the schema type "Company" called "company" for the collection "companies" 
+    return mongoose.model('company', Company,'companies');
 };
 
 // export of the model like a singleton [export an instance of the model] so be carefull of the ()
 module.exports = new companyModel();
+
+
+
+
+// let Customers = new Schema({
+    //     title     : String
+    //     , body      : String
+    //     , date      : Date
+    // });
+
+    // let Company = new Schema({
+    //     author    : ObjectId
+    //     , title     : String
+    //     , body      : String
+    //     , date      : Date
+    //     , comments  : [Comments]
+    //     , meta      : {
+    //             votes : Number
+    //         , favs  : Number
+    //         }
+    // });
+
+    // mongoose.model('BlogPost', BlogPost);

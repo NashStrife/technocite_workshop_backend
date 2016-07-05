@@ -20,7 +20,7 @@ exports.post = function(req, res, next) {
     let company = new model(req.body);
     
     // and add it to the db
-    company.save(function(err, data) {
+    company.customers.save(function(err, data) {
         let message = {
             message: 'Document saved'
         };
