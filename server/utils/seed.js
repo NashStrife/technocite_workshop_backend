@@ -5,212 +5,211 @@ var logger = require('./logger');
 
 logger.log('Seeding the Database');
 
-var companies = [{
-    "name" : "Ma société",
-    "logo" : "logo.png",
-    "tva" : {
-        "num" : "BE 0214.563.254",
-        "siren" : "",
-        "rcs" : ""
-    },
-    "contact" : {
-        "street" : "Ma Rue",
-        "number" : 1,
-        "box" : "",
-        "zip" : "1000",
-        "town" : "Ma Ville",
-        "country" : "Belgique",
-        "mail" : "mon.mail@gmail.com",
-        "phoneMain" : "+32 45 256 365",
-        "phoneSec" : "+32 24 569 874",
-        "fax" : "071 25 96 78",
-        "web" : "http://www.monsite.be"
-    },
-    "contactPerson" : {
-        "civility" : "Monsieur",
-        "firstname" : "John",
-        "lastname" : "Doe",
-        "post" : "Gérant",
-        "mail" : "john.doe@gmail.com",
-        "phoneMain" : "+32 493 452 365",
-        "phoneSec" : "",
-        "pwd" : "pass123",
-    },
-    "customers" : [
-        {
-            "name" : "Sébastien Jacques",
-            "isCompany" : false, 
-            "tva" : {
-                "num" : "",
-                "siren" : "",
-                "rcs" : ""
-            },
-            "billingInfo" : {
-                "civility" : "Monsieur",
-                "firstname" : "Sébastien",
-                "lastname" : "Jacques",
-                "street" : "Rue Albert Bodson",
-                "number" : 38,
-                "box" : "",
-                "zip" : "6280",
-                "town" : "Gerpinnes",
-                "country" : "Belgique",
-                "mail" : "jac.sebastien@gmail.com",
-                "phoneMain" : "0493 17 24 69",
-                "phoneSec" : "",
-                "fax" : ""
-            },
-            "deliveryInfo" : {
-                "civility" : "Monsieur",
-                "firstname" : "Sébastien",
-                "lastname" : "Jacques",
-                "company" : "",
-                "street" : "Rue Albert Bodson",
-                "number" : 38,
-                "box" : "",
-                "zip" : "6280",
-                "town" : "Gerpinnes",
-                "country" : "Belgique",
-            },
-            "contactPerson" : {
-                "civility" : "Monsieur",
-                "firstname" : "Sébastien",
-                "lastname" : "Jacques",
-                "post" : "",
-                "mail" : "jac.sebastien@gmail.com",
-                "phoneMain" : "0493 17 24 69",
-                "phoneSec" : "",
-                "pwd" : "pass123"
-            },
-            "bills" : [
+let companies = [{
+        "name" : "Ma société",
+        "logo" : "logo.png",
+        "tva" : {
+            "num" : "BE 0214.563.254",
+            "siren" : "",
+            "rcs" : ""
+        },
+        "contact" : {
+            "street" : "Ma Rue",
+            "number" : 1,
+            "box" : "",
+            "zip" : "1000",
+            "town" : "Ma Ville",
+            "country" : "Belgique",
+            "mail" : "mon.mail@gmail.com",
+            "phoneMain" : "+32 45 256 365",
+            "phoneSec" : "+32 24 569 874",
+            "fax" : "071 25 96 78",
+            "web" : "http://www.monsite.be"
+        },
+        "contactPerson" : {
+            "civility" : "Monsieur",
+            "firstname" : "John",
+            "lastname" : "Doe",
+            "post" : "Gérant",
+            "mail" : "john.doe@gmail.com",
+            "phoneMain" : "+32 493 452 365",
+            "phoneSec" : "",
+            "pwd" : "pass123",
+        },
+        "paymentInfo" : {
+            "bank" : [
                 {
-                    "link" : "20160629-01001",
-                    "state" : true,
-                    "quotation_id" : 0,
-                    "createdAt" : "2016-06-29",
-                    "deadline" : "2016-07-10",
-                    "payedAt" : "2016-06-31"
-                }
-            ], 
-            "quotations" : [
+                    "name" : "Belfius Account",
+                    "iban" : "BE02589674859",
+                    "bic" : "AFR"
+                },
                 {
-                    "link" : "20160621-01001",
-                    "state" : true,
-                    "createdAt" : "2016-06-21"
-                },{
-                    "link" : "20160408-01001",
-                    "state" : false,
-                    "createdAt" : "2016-04-08"
+                    "name" : "Fortis Account",
+                    "iban" : "BE250650879685",
+                    "bic" : "DCF"
                 }
-            ], 
-            "memo" : "Le premier client",
-            "createdAt" : Date.now(),
-            "updatedAt" : ""
+            ],
+            "paypal" : [
+                {
+                    "name" : "Paypal 01",
+                    "mail" : "mail@gmail.com"
+                }
+            ]
+        },
+        "templates" : {
+            "bill" : 1,
+            "quotation" : 1
+        },
+        "createdAt" : Date.now(),
+        "updatedAt" : ""
+    }];
+
+let customers = [{
+        "name" : "Sébastien Jacques",
+        "isCompany" : false, 
+        "tva" : {
+            "num" : "",
+            "siren" : "",
+            "rcs" : ""
+        },
+        "billingInfo" : {
+            "civility" : "Monsieur",
+            "firstname" : "Sébastien",
+            "lastname" : "Jacques",
+            "street" : "Rue Albert Bodson",
+            "number" : 38,
+            "box" : "",
+            "zip" : "6280",
+            "town" : "Gerpinnes",
+            "country" : "Belgique",
+            "mail" : "jac.sebastien@gmail.com",
+            "phoneMain" : "0493 17 24 69",
+            "phoneSec" : "",
+            "fax" : ""
+        },
+        "deliveryInfo" : {
+            "civility" : "Monsieur",
+            "firstname" : "Sébastien",
+            "lastname" : "Jacques",
+            "company" : "",
+            "street" : "Rue Albert Bodson",
+            "number" : 38,
+            "box" : "",
+            "zip" : "6280",
+            "town" : "Gerpinnes",
+            "country" : "Belgique",
+        },
+        "contactPerson" : {
+            "civility" : "Monsieur",
+            "firstname" : "Sébastien",
+            "lastname" : "Jacques",
+            "post" : "",
+            "mail" : "jac.sebastien@gmail.com",
+            "phoneMain" : "0493 17 24 69",
+            "phoneSec" : "",
+            "pwd" : "pass123"
+        },
+        "bills" : [
+            {
+                "link" : "20160629-01001",
+                "state" : true,
+                "quotation_id" : 0,
+                "createdAt" : "2016-06-29",
+                "deadline" : "2016-07-10",
+                "payedAt" : "2016-06-31"
+            }
+        ], 
+        "quotations" : [
+            {
+                "link" : "20160621-01001",
+                "state" : true,
+                "createdAt" : "2016-06-21"
+            },{
+                "link" : "20160408-01001",
+                "state" : false,
+                "createdAt" : "2016-04-08"
+            }
+        ], 
+        "memo" : "Le premier client",
+        "createdAt" : Date.now(),
+        "updatedAt" : ""
         },{
-            "name" : "Blizzard",
-            "isCompany" : true, 
-            "tva" : {
-                "num" : "BE 0851.968.717",
-                "siren" : "",
-                "rcs" : ""
-            },
-            "billingInfo" : {
-                "civility" : "",
-                "firstname" : "",
-                "lastname" : "",
-                "street" : "Beechavenue",
-                "number" : 131,
-                "box" : "D",
-                "zip" : "1119 RB",
-                "town" : "Schiphol-Rijk",
-                "country" : "Pays-Bas",
-                "mail" : "infos@blizzard.com",
-                "phoneMain" : "+32 25 258 963",
-                "phoneSec" : "",
-                "fax" : ""
-            },
-            "deliveryInfo" : {
-                "civility" : "",
-                "firstname" : "",
-                "lastname" : "",
-                "company" : "",
-                "street" : "Beechavenue",
-                "number" : 131,
-                "box" : "D",
-                "zip" : "1119 RB",
-                "town" : "Schiphol-Rijk",
-                "country" : "Pays-Bas",
-            },
-            "contactPerson" : {
-                "civility" : "Monsieur",
-                "firstname" : "Bart",
-                "lastname" : "Smith",
-                "post" : "Management",
-                "mail" : "bartsmith@blizzard.com",
-                "phoneMain" : "+32 254 896 456",
-                "phoneSec" : "",
-                "pwd" : "pass123"
-            },
-            "bills" : [
-                {
-                    "link" : "20160425-01002",
-                    "state" : true,
-                    "quotation_id" : 0,
-                    "createdAt" : "2016-04-25",
-                    "deadline" : "2016-05-10",
-                    "payedAt" : "2016-04-31"
-                },{
-                    "link" : "20160512-01002",
-                    "state" : false,
-                    "quotation_id" : 1,
-                    "createdAt" : "2016-05-12",
-                    "deadline" : "2016-05-22",
-                    "payedAt" : ""
-                }
-            ], 
-            "quotations" : [
-                {
-                    "link" : "20160415-01002",
-                    "state" : true,
-                    "createdAt" : "2016-04-15"
-                },{
-                    "link" : "20160502-01002",
-                    "state" : true,
-                    "createdAt" : "2016-05-02"
-                }
-            ], 
-            "memo" : "Très gros client",
-            "createdAt" : Date.now(),
-            "updatedAt" : ""
-        }
-    ],
-    "paymentInfo" : {
-        "bank" : [
+        "name" : "Blizzard",
+        "isCompany" : true, 
+        "tva" : {
+            "num" : "BE 0851.968.717",
+            "siren" : "",
+            "rcs" : ""
+        },
+        "billingInfo" : {
+            "civility" : "",
+            "firstname" : "",
+            "lastname" : "",
+            "street" : "Beechavenue",
+            "number" : 131,
+            "box" : "D",
+            "zip" : "1119 RB",
+            "town" : "Schiphol-Rijk",
+            "country" : "Pays-Bas",
+            "mail" : "infos@blizzard.com",
+            "phoneMain" : "+32 25 258 963",
+            "phoneSec" : "",
+            "fax" : ""
+        },
+        "deliveryInfo" : {
+            "civility" : "",
+            "firstname" : "",
+            "lastname" : "",
+            "company" : "",
+            "street" : "Beechavenue",
+            "number" : 131,
+            "box" : "D",
+            "zip" : "1119 RB",
+            "town" : "Schiphol-Rijk",
+            "country" : "Pays-Bas",
+        },
+        "contactPerson" : {
+            "civility" : "Monsieur",
+            "firstname" : "Bart",
+            "lastname" : "Smith",
+            "post" : "Management",
+            "mail" : "bartsmith@blizzard.com",
+            "phoneMain" : "+32 254 896 456",
+            "phoneSec" : "",
+            "pwd" : "pass123"
+        },
+        "bills" : [
             {
-                "name" : "Belfius Account",
-                "iban" : "BE02589674859",
-                "bic" : "AFR"
-            },
-            {
-                "name" : "Fortis Account",
-                "iban" : "BE250650879685",
-                "bic" : "DCF"
+                "link" : "20160425-01002",
+                "state" : true,
+                "quotation_id" : 0,
+                "createdAt" : "2016-04-25",
+                "deadline" : "2016-05-10",
+                "payedAt" : "2016-04-31"
+            },{
+                "link" : "20160512-01002",
+                "state" : false,
+                "quotation_id" : 1,
+                "createdAt" : "2016-05-12",
+                "deadline" : "2016-05-22",
+                "payedAt" : ""
             }
-        ],
-        "paypal" : [
+        ], 
+        "quotations" : [
             {
-                "name" : "Paypal 01",
-                "mail" : "mail@gmail.com"
+                "link" : "20160415-01002",
+                "state" : true,
+                "createdAt" : "2016-04-15"
+            },{
+                "link" : "20160502-01002",
+                "state" : true,
+                "createdAt" : "2016-05-02"
             }
-        ]
-    },
-    "templates" : {
-        "bill" : 1,
-        "quotation" : 1
-    },
-    "createdAt" : Date.now(),
-    "updatedAt" : ""
-}];
+        ], 
+        "memo" : "Très gros client",
+        "createdAt" : Date.now(),
+        "updatedAt" : ""
+    }];
 
 
 // add elements to the db merging the model with data created before
@@ -262,8 +261,32 @@ var createCompanies = function(data) {
         });
 };
 
+// function to create new restos
+var createCustomers = function(data) {
+    logger.log("... creating Customer");
+    // new promise
+    var promises = customers.map(function(customer) {
+        // create thx to the function created before, merging the model [Resto] to the data [resto]
+        return createDoc(Company.Customer, customer);
+    });
+
+    // when all promises corresponding to "promises" are done
+    return Promise.all(promises)
+        // then do the next step
+        .then(function(customers) {
+            // return all data merged thx to lodash
+            return _.merge({
+                customers: customers
+                // or if no data return a void object
+            }, data || {});
+        });
+};
+
 // each time we clean the db, then create new one with default data
 cleanDB()
     .then(createCompanies)
+    .then(logger.log.bind(logger))
+    .catch(logger.log.bind(logger))
+    .then(createCustomers)
     .then(logger.log.bind(logger))
     .catch(logger.log.bind(logger));
