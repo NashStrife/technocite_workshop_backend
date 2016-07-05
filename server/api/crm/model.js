@@ -314,9 +314,15 @@ let companyModel = function() {
                     type : Boolean,
                     required : true
                 },
+                quotation_id : {
+                    type : Number
+                },
                 createdAt : {
                     type : Date,
                     required : true
+                },
+                deadLine : {
+                    type : Date
                 },
                 payedAt : {
                     type : Date
