@@ -397,25 +397,25 @@ let companyModel = function() {
         var self = this;
         // use the find function of the constructor from the model
         this.constructor.find({
-            'customers.billingInfo.street': self.address.street,
-            'address.number': self.address.number,
-            'address.zip': self.address.zip,
-            'address.town': self.address.town,
-            'address.country': self.address.country
+            'customers.billingInfo.street': self.customers.billingInfo.street,
+            'customers.billingInfo.number': self.customers.billingInfo.number,
+            'customers.billingInfo.zip': self.customers.billingInfo.zip,
+            'customers.billingInfo.town': self.customers.billingInfo.town,
+            'customers.billingInfo.country': self.customers.billingInfo.country
         }, function(err, docs) {
             // if the address is different
             if (!docs.length) {
                 next();
             // if the address is the same
             } else {
-                next(new Error("Restaurants exists!"));
+                next(new Error("customer exists!"));
             }
         });
     });
 
-    // we return the schema called "resto" with informations of the schema for the collection "restos" 
-    return mongoose.model('resto', schema,'restos');
+    // we return the schema called "company" with informations of the schema for the collection "companies" 
+    return mongoose.model('company', schema,'companies');
 };
 
 // export of the model like a singleton [export an instance of the model] so be carefull of the ()
-module.exports = new restoModel();
+module.exports = new companyModel();
