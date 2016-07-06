@@ -248,6 +248,10 @@ let companyModel = function() {
             }
     });
 
+    // Customer.virtual('fullname').get(function(){
+    //     return this.billingInfo.firstname + ' ' + this.billingInfo.lastname;
+    // });
+
     let Company = mongoose.Schema({
             name : {
                 type : String,
@@ -392,31 +396,31 @@ let companyModel = function() {
     });
 
     // we use a hook to say "when you want to save data using the model do this before"
-    // Customers.pre('save', function(next) {
-    //     // to avoid a scoop problem => this self contain now the data
-    //     var self = this;
-    //     logger.log(self.billingInfo.street);
-    //     // // use the find function of the constructor from the model
-    //     // this.constructor.find({
-    //     //     'customers.billingInfo.street': self.customers.billingInfo.street,
-    //     //     'customers.billingInfo.number': self.customers.billingInfo.number,
-    //     //     'customers.billingInfo.zip': self.customers.billingInfo.zip,
-    //     //     'customers.billingInfo.town': self.customers.billingInfo.town,
-    //     //     'customers.billingInfo.country': self.customers.billingInfo.country
-    //     // }, function(err, docs) {
-    //     //     // if the address is different
-    //     //     if (!docs.length) {
-    //     //         next();
-    //     //     // if the address is the same
-    //     //     } else {
-    //     //         next(new Error("customer exists!"));
-    //     //     }
-    //     // });
-    // });
+    Customer.pre('save', function(next) {
+        // to avoid a scoop problem => this self contain now the data
+        var self = this;
+        logger.log(self.billingInfo.street);
+        // use the find function of the constructor from the model
+        this.constructor.find({
+            'billingInfo.street': self.billingInfo.street,
+            'billingInfo.number': self.billingInfo.number,
+            'billingInfo.zip': self.billingInfo.zip,
+            'billingInfo.town': self.billingInfo.town,
+            'billingInfo.country': self.billingInfo.country
+        }, function(err, docs) {
+            // if the address is different
+            if (!docs.length) {
+                next();
+            // if the address is the same
+            } else {
+                next(new Error("customer exists!"));
+            }
+        });
+    });
 
     var Base = mongoose.model('company', Company, 'companies');
     var exports = module.exports = Base;
-    Base.Customer = mongoose.model('customer', Customer, 'companies');
+    Base.Customer = mongoose.model('customer', Customer, 'customers');
     logger.log(Base);
     // we return the schema type "Company" called "company" for the collection "companies" 
     // return mongoose.model('company', Company,'companies');

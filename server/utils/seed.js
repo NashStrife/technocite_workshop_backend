@@ -64,7 +64,8 @@ let companies = [{
         "updatedAt" : ""
     }];
 
-let customers = [{
+let customers = [
+    {
         "name" : "Sébastien Jacques",
         "isCompany" : false, 
         "tva" : {
@@ -133,7 +134,7 @@ let customers = [{
         "memo" : "Le premier client",
         "createdAt" : Date.now(),
         "updatedAt" : ""
-        },{
+    },{
         "name" : "Blizzard",
         "isCompany" : true, 
         "tva" : {
@@ -209,7 +210,8 @@ let customers = [{
         "memo" : "Très gros client",
         "createdAt" : Date.now(),
         "updatedAt" : ""
-    }];
+    }
+];
 
 
 // add elements to the db merging the model with data created before
@@ -234,7 +236,9 @@ var cleanDB = function() {
         // list all resto corresponding to the model
         .map(function(model) {
             // and remove it
-            return model.remove().exec();
+            var remove = model.remove().exec();
+            remove.customers = model.Customer.remove().exec();
+            return remove;
         });
     // when all promises corresponding to "cleanPromises are done, the function is finished
     return Promise.all(cleanPromises);
