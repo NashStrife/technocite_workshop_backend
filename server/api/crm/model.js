@@ -364,18 +364,15 @@ let companyModel = function() {
                         required : true
                     },
                     bic : {
-                        type : String,
-                        required : true
+                        type : String
                     }
                 }],
                 paypal : [{
                     name : {
-                        type : String,
-                        required : true
+                        type : String
                     },
                     mail : {
-                        type : String, 
-                        required : true
+                        type : String
                     }
                 }]
             },
@@ -388,10 +385,12 @@ let companyModel = function() {
                 }
             },
             createdAt : {
-                type : Date
+                type : Date,
+                required : true
             },
             updatedAt : {
-                type : Date
+                type : Date,
+                default : Date.now
             }
     });
 
