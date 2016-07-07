@@ -53,11 +53,14 @@ let companyModel = function() {
                 required : true,
                 lowercase : true
             },
+            picture : {
+                type : String
+            },
             isCompany : {
                 type : Boolean,
                 required : true
             },
-            tva : {
+            vat : {
                 num : {
                     type : String
                 },
@@ -261,7 +264,7 @@ let companyModel = function() {
             logo : {
                 type : String
             },
-            tva : {
+            vat : {
                 num : {
                     type : String,
                     required : true
@@ -382,8 +385,25 @@ let companyModel = function() {
                 },
                 quotation : {
                     type : Number
+                },
+                rule : {
+                    type : String
                 }
             },
+            terms : {
+                type : String
+            },
+            articles : [{
+                name : {
+                    type : String
+                },
+                description : {
+                    type : String
+                },
+                unitPrice : {
+                    type : number
+                }
+            }],
             createdAt : {
                 type : Date,
                 required : true
@@ -392,6 +412,21 @@ let companyModel = function() {
                 type : Date,
                 default : Date.now
             }
+    });
+
+    let Param = mongoose.Schema({
+        rules : [{
+            type : String
+        }],
+        refunds : [{
+            type : String
+        }],
+        countries : [{
+            type : String
+        }],
+        vatRate : [{
+            type : Number
+        }]
     });
 
     // we use a hook to say "when you want to save data using the model do this before"
@@ -420,6 +455,7 @@ let companyModel = function() {
     var Base = mongoose.model('company', Company, 'companies');
     var exports = module.exports = Base;
     Base.Customer = mongoose.model('customer', Customer, 'customers');
+    Base.Param = mongoose.model('param', Param, 'params')
     logger.log(Base);
     // we return the schema type "Company" called "company" for the collection "companies" 
     // return mongoose.model('company', Company,'companies');

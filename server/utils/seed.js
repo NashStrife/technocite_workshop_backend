@@ -67,8 +67,9 @@ let companies = [{
 let customers = [
     {
         "name" : "Sébastien Jacques",
+        "picture" : "",
         "isCompany" : false, 
-        "tva" : {
+        "vat" : {
             "num" : "",
             "siren" : "",
             "rcs" : ""
@@ -136,8 +137,9 @@ let customers = [
         "updatedAt" : ""
     },{
         "name" : "Blizzard",
+        "picture" : "",
         "isCompany" : true, 
-        "tva" : {
+        "vat" : {
             "num" : "BE 0851.968.717",
             "siren" : "",
             "rcs" : ""
@@ -212,6 +214,28 @@ let customers = [
         "updatedAt" : ""
     }
 ];
+let params = [{
+    "rules" : [
+        "Facture payable au grand comptant",
+        "Facture payable au comptant"
+    ],
+    "refunds" : [
+        "%",
+        "€",
+        "$",
+        "£"
+    ],
+    "countries" : [
+        "Belgique",
+        "Pays-Bas",
+        "Luxembourg",
+        "France",
+        "Allemange",
+        "Angleterre",
+        "Etats-Unis"
+    ],
+    "vatRate" : [21,0,6]
+}]
 
 
 // add elements to the db merging the model with data created before
@@ -286,6 +310,27 @@ var createCustomers = function(data) {
         });
 };
 
+// function to create new restos
+var createParams = function(data) {
+    logger.log("... creating Params");
+    // new promise
+    var promises = params.map(function(param) {
+        // create thx to the function created before, merging the model [Resto] to the data [resto]
+        return createDoc(Company.Params, param);
+    });
+
+    // when all promises corresponding to "promises" are done
+    return Promise.all(promises)
+        // then do the next step
+        .then(function(params) {
+            // return all data merged thx to lodash
+            return _.merge({
+                params: params
+                // or if no data return a void object
+            }, data || {});
+        });
+};
+
 // each time we clean the db, then create new one with default data
 cleanDB()
     .then(createCompanies)
@@ -293,4 +338,7 @@ cleanDB()
     .catch(logger.log.bind(logger))
     .then(createCustomers)
     .then(logger.log.bind(logger))
-    .catch(logger.log.bind(logger));
+    .catch(logger.log.bind(logger))
+    .then(createParams)
+    .then(logger.log.bind(logger))
+    .catch(logger.log.bind(logger));;

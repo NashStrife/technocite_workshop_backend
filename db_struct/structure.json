@@ -1,0 +1,113 @@
+customer : {
+    name : String,
+    isCompany : Boolean,
+    tva : {
+        num : String,
+        siren : String,
+        rcs : String
+    },
+    billingInfo : {
+        civility : String,
+        firstname : String,
+        lastname : String,
+        street : String,
+        number : Number,
+        box : String,
+        zip : String,
+        town : String,
+        country : String,
+        mail : String,
+        phoneMain : String,
+        phoneSec : String,
+        fax : String
+    },
+    deliveryInfo : {
+        civility : String,
+        firstname : String,
+        lastname : String,
+        company : String,
+        street : String,
+        number : Number,
+        box : String,
+        zip : String,
+        town : String,
+        country : String
+    }, 
+    contactPerson : {
+        civility : String,
+        firstname : String,
+        lastname : String,
+        post : String,
+        mail : String,
+        phoneMain : String,
+        phoneSec : String,
+        pwd : String
+    },
+    bills : [{
+        link : String,
+        state : Boolean,
+        quotation_id : Number,
+        createdAt : Date,
+        deadLine : Date,
+        payedAt : Date
+    }],
+    quotations : [{
+        link : String,
+        state : Boolean,
+        createdAt : Date
+    }],
+    memo : String,
+    createdAt : Date,
+    updatedAt : Date
+}
+
+
+company : {
+    name : String,
+    logo : String,
+    tva : {
+        num : String,
+        siren : String,
+        rcs : String
+    },
+    contact : {
+        street : String,
+        number : Number,
+        box : String,
+        zip : String,
+        town : String,
+        country : String,
+        mail : String,
+        phoneMain : String,
+        phoneSec : String,
+        fax : String,
+        web : String
+    }, 
+    contactPerson : {
+        civility : String,
+        firstname : String,
+        lastname : String,
+        post : String,
+        mail : String,
+        phoneMain : String,
+        phoneSec : String,
+        pwd : String
+    },
+    paymentInfo : {
+        bank : [{
+            name : String,
+            iban : String,
+            bic : String
+        }],
+        paypal : [{
+            name : String,
+            mail : String
+        }]
+    },
+    templates : {
+        bill : Number,
+        quotation : Number
+    },
+    createdAt : Date,
+    updatedAt : Date
+}
