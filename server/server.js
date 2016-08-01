@@ -25,7 +25,7 @@ app.use('/api', api);
 
 // we go to the / url and not /api/...
 app.use('/', function(req, res){
-    res.status(200);	// avec express plus besoin d'envoyer des statuts il le fait tt seul
+    res.status(200);
   	res.sendFile(`${process.cwd()}/public/index.html`);
 });
 

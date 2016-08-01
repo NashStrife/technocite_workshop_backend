@@ -464,26 +464,3 @@ let companyModel = function() {
 
 // export of the model like a singleton [export an instance of the model] so be carefull of the ()
 module.exports = new companyModel();
-
-
-
-
-// let Customers = new Schema({
-    //     title     : String
-    //     , body      : String
-    //     , date      : Date
-    // });
-
-    // let Company = new Schema({
-    //     author    : ObjectId
-    //     , title     : String
-    //     , body      : String
-    //     , date      : Date
-    //     , comments  : [Comments]
-    //     , meta      : {
-    //             votes : Number
-    //         , favs  : Number
-    //         }
-    // });
-
-    // mongoose.model('BlogPost', BlogPost);
