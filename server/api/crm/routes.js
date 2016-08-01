@@ -20,5 +20,8 @@ router.route('/admin')
 router.route('/admin/:id')
 .put(controller.updateAdmin);
 
+router.route('/params')
+.get(controller.getParams);
+
 
 module.exports = router;

@@ -8,7 +8,7 @@ logger.log('Seeding the Database');
 let companies = [{
         "name" : "Ma société",
         "logo" : "logo.png",
-        "tva" : {
+        "vat" : {
             "num" : "BE 0214.563.254",
             "siren" : "",
             "rcs" : ""
@@ -262,6 +262,7 @@ var cleanDB = function() {
             // and remove it
             var remove = model.remove().exec();
             remove.customers = model.Customer.remove().exec();
+            remove.params = model.Param.remove().exec();
             return remove;
         });
     // when all promises corresponding to "cleanPromises are done, the function is finished
@@ -316,7 +317,7 @@ var createParams = function(data) {
     // new promise
     var promises = params.map(function(param) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
-        return createDoc(Company.Params, param);
+        return createDoc(Company.Param, param);
     });
 
     // when all promises corresponding to "promises" are done
@@ -341,4 +342,4 @@ cleanDB()
     .catch(logger.log.bind(logger))
     .then(createParams)
     .then(logger.log.bind(logger))
-    .catch(logger.log.bind(logger));;
+    .catch(logger.log.bind(logger));

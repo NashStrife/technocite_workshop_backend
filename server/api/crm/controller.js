@@ -116,3 +116,14 @@ exports.updateAdmin = function(req, res, next) {
         }
     );
 };
+
+exports.getParams = function(req, res, next) {
+    logger.log("controller get")
+    // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
+    model.Param.find()
+    // once the query is done, do the following action thanks to a "promise"
+    .then(function(docs){
+        logger.log(docs);
+        res.json(docs);
+    });
+};

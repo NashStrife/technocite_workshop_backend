@@ -401,7 +401,7 @@ let companyModel = function() {
                     type : String
                 },
                 unitPrice : {
-                    type : number
+                    type : Number
                 }
             }],
             createdAt : {
