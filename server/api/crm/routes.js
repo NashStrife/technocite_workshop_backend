@@ -23,5 +23,8 @@ router.route('/admin/:id')
 router.route('/params')
 .get(controller.getParams);
 
+router.route('/createPdf')
+.get(controller.createPdf);
+
 
 module.exports = router;

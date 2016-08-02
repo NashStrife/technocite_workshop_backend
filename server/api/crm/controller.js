@@ -2,8 +2,11 @@ let logger = require(`${process.cwd()}/server/utils/logger`);
 // get an instance of the model of our db
 let model = require('./model');
 
+var phantomjs = require('phantomjs');
+var binPath = phantomjs.path;
+
 exports.getCustomer = function(req, res, next) {
-    logger.log("controller get")
+    logger.log("controller get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.Customer.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -35,7 +38,7 @@ exports.postCustomer = function(req, res, next) {
 
 
 exports.updateCustomer = function(req, res, next) {
-    logger.log("controller Update")
+    logger.log("controller Update");
     
     // update the data corresponding to the id with the new one in the request
     model.Customer.findByIdAndUpdate(req.params.id, req.body, 
@@ -89,7 +92,7 @@ exports.dynamicSearch = function(req, res, next) {
 };
 
 exports.getAdmin = function(req, res, next) {
-    logger.log("controller get")
+    logger.log("controller get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -118,7 +121,7 @@ exports.updateAdmin = function(req, res, next) {
 };
 
 exports.getParams = function(req, res, next) {
-    logger.log("controller get")
+    logger.log("controller get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.Param.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -127,3 +130,8 @@ exports.getParams = function(req, res, next) {
         res.json(docs);
     });
 };
+
+exports.createPdf = function(req, res, next) {
+    logger.log("Create PDF");
+    
+}
