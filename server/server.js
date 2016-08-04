@@ -1,5 +1,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
+
 let api = require('./api/api');
 let logger = require(`${process.cwd()}/server/utils/logger`);
 // get the db module
@@ -16,6 +17,13 @@ if (config.seed) {
     require('./utils/seed');
 }
 
+app.use(function(req, res, next) { //allow cross origin requests
+    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+    res.header("Access-Control-Allow-Origin", "http://localhost");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // if we use a static route
 app.use(express.static('public'));
 app.use(bodyParser());
@@ -29,9 +37,12 @@ app.use('/', function(req, res){
   	res.sendFile(`${process.cwd()}/public/index.html`);
 });
 
+
+
 app.use(function(err,req,res,next){
    logger.warn(err.message);
    res.status(500).send('Oops server is in a bad mood !'); 
 });
 
 module.exports = app;
+

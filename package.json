@@ -11,6 +11,7 @@
     "lodash": "^4.13.1",
     "mongoose": "^4.4.19",
     "mongoose-validator": "^1.2.5",
+    "multer": "^1.1.0",
     "phantomjs": "^2.1.7"
   },
   "devDependencies": {},
