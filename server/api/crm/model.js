@@ -433,7 +433,8 @@ let companyModel = function() {
     Customer.pre('save', function(next) {
         // to avoid a scoop problem => this self contain now the data
         var self = this;
-        logger.log(self.billingInfo.street);
+        logger.log("--- MODEL : Customer pre-saving Doc")
+        // logger.log(self.billingInfo.street);
         // use the find function of the constructor from the model
         this.constructor.find({
             'billingInfo.street': self.billingInfo.street,

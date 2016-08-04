@@ -1,7 +1,11 @@
-var Company = require('../api/crm/model');
+let Company = require('../api/crm/model');
 
-var _ = require('lodash');
-var logger = require('./logger');
+let _ = require('lodash');
+let logger = require('./logger');
+
+let bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 logger.log('Seeding the Database');
 
@@ -99,7 +103,7 @@ let customers = [
             "box" : "",
             "zip" : "6280",
             "town" : "Gerpinnes",
-            "country" : "Belgique",
+            "country" : "Belgique"
         },
         "contactPerson" : {
             "civility" : "Monsieur",
@@ -169,7 +173,7 @@ let customers = [
             "box" : "D",
             "zip" : "1119 RB",
             "town" : "Schiphol-Rijk",
-            "country" : "Pays-Bas",
+            "country" : "Pays-Bas"
         },
         "contactPerson" : {
             "civility" : "Monsieur",
@@ -238,9 +242,15 @@ let params = [{
 }]
 
 
+customers.map(function(customer){
+    customer.contactPerson.pwd = bcrypt.hashSync(customer.contactPerson.pwd, saltRounds);
+    logger.log(customer.contactPerson.pwd);
+});
+
+
 // add elements to the db merging the model with data created before
 var createDoc = function(model, doc) {
-    logger.log("... creating Doc");
+    logger.log("--- SEED : Creating Doc");
     // use the promise to manage what we do after
     return new Promise(function(resolve, reject) {
         // prepare data in function of the model and save it into the db
@@ -254,7 +264,7 @@ var createDoc = function(model, doc) {
 
 // creation of a clean method to clean the db each time we launch the application to avoid having too many data inside the db
 var cleanDB = function() {
-    logger.log('... cleaning the DB');
+    logger.log('--- SEED : Cleaning the DB');
     // clean thx to the model imported at the begining of the file
     var cleanPromises = [Company]
         // list all resto corresponding to the model
@@ -269,9 +279,9 @@ var cleanDB = function() {
     return Promise.all(cleanPromises);
 };
 
-// function to create new restos
+// function to create new Company
 var createCompanies = function(data) {
-    logger.log("... creating Company");
+    logger.log("--- SEED : Creating Company");
     // new promise
     var promises = companies.map(function(company) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
@@ -290,9 +300,9 @@ var createCompanies = function(data) {
         });
 };
 
-// function to create new restos
+// function to create new Customers
 var createCustomers = function(data) {
-    logger.log("... creating Customer");
+    logger.log("--- SEED : Creating Customer");
     // new promise
     var promises = customers.map(function(customer) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
@@ -311,9 +321,9 @@ var createCustomers = function(data) {
         });
 };
 
-// function to create new restos
+// function to create new Params
 var createParams = function(data) {
-    logger.log("... creating Params");
+    logger.log("--- SEED : Creating Params");
     // new promise
     var promises = params.map(function(param) {
         // create thx to the function created before, merging the model [Resto] to the data [resto]
@@ -333,6 +343,7 @@ var createParams = function(data) {
 };
 
 // each time we clean the db, then create new one with default data
+
 cleanDB()
     .then(createCompanies)
     .then(logger.log.bind(logger))

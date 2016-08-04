@@ -1,12 +1,16 @@
 let logger = require(`${process.cwd()}/server/utils/logger`);
 // get an instance of the model of our db
-let model = require('./model');
+let model = require('../model');
 
-var phantomjs = require('phantomjs');
-var binPath = phantomjs.path;
+let bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+let phantomjs = require('phantomjs');
+let binPath = phantomjs.path;
+
 
 exports.getCustomer = function(req, res, next) {
-    logger.log("controller get");
+    logger.log("--- CONTROLLER : get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.Customer.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -16,29 +20,32 @@ exports.getCustomer = function(req, res, next) {
     });
 };
 
-
 exports.postCustomer = function(req, res, next) {
-    logger.log("controller post");
+    logger.log("--- CONTROLLER : post");
     
     // we create a new model with the data to add to the db
     let customer = new model.Customer(req.body);
-    
-    // and add it to the db
-    customer.save(function(err, data) {
-        let message = {
-            message: 'Document saved'
-        };
-        if (err) {
-            message.message = err.message;
-        }
-        logger.log(message);
-        res.json(message);
+
+    bcrypt.hash(customer.contactPerson.pwd, saltRounds, function(err, hash) { 
+        logger.log(customer.contactPerson.pwd);
+        logger.log(hash);
+        customer.contactPerson.pwd = hash;
+        // and add it to the db
+        customer.save(function(err, data) {
+            let message = {
+                message: 'Document saved'
+            };
+            if (err) {
+                message.message = err.message;
+            }
+            logger.log(message);
+            res.json(message);
+        });
     });
 };
 
-
 exports.updateCustomer = function(req, res, next) {
-    logger.log("controller Update");
+    logger.log("--- CONTROLLER : Update");
     
     // update the data corresponding to the id with the new one in the request
     model.Customer.findByIdAndUpdate(req.params.id, req.body, 
@@ -56,7 +63,7 @@ exports.updateCustomer = function(req, res, next) {
 };
 
 exports.deleteById = function(req, res, next) {
-    logger.log("controller deleteById");
+    logger.log("--- CONTROLLER : deleteById");
     
     // get id from the parameters sent in the url
     model.Customer.findByIdAndRemove(req.params.id,
@@ -74,10 +81,10 @@ exports.deleteById = function(req, res, next) {
 }
 
 exports.dynamicSearch = function(req, res, next) {
-    logger.log("controller dynamicSearch");
+    logger.log("--- CONTROLLER : dynamicSearch");
 
     let query = req.query;
-    console.log(req.query);
+    logger.log(req.query);
     model.Customer.find(query)
     .then(function(docs){
         // the result is not empty we have a corresponding result
@@ -92,7 +99,7 @@ exports.dynamicSearch = function(req, res, next) {
 };
 
 exports.getAdmin = function(req, res, next) {
-    logger.log("controller get");
+    logger.log("--- CONTROLLER : get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -103,7 +110,7 @@ exports.getAdmin = function(req, res, next) {
 };
 
 exports.updateAdmin = function(req, res, next) {
-    logger.log("controller Update")
+    logger.log("--- CONTROLLER : Update")
     
     // update the data corresponding to the id with the new one in the request
     model.findByIdAndUpdate(req.params.id, req.body, 
@@ -121,7 +128,7 @@ exports.updateAdmin = function(req, res, next) {
 };
 
 exports.getParams = function(req, res, next) {
-    logger.log("controller get");
+    logger.log("--- CONTROLLER : get");
     // find() function of the model thanks to Mongoose [cf : http://mongoosejs.com/docs/queries.html]
     model.Param.find()
     // once the query is done, do the following action thanks to a "promise"
@@ -130,6 +137,10 @@ exports.getParams = function(req, res, next) {
         res.json(docs);
     });
 };
+
+
+
+
 
 exports.createPdf = function(req, res, next) {
     logger.log("Create PDF");

@@ -10,10 +10,10 @@ let db = function(){
             mongoose.connect('mongodb://localhost/crmcompany');
             // connection to the db
             let db = mongoose.connection;
-            db.on('error', logger.warn.bind(logger,'Connection Error'));
+            db.on('error', logger.warn.bind(logger,'--- DB : Connection Error'));
             // when connection is ok
             db.once('open', function(){
-                logger.log('db connection open');
+                logger.log('--- DB : Connection Open');
             })       
         }
     }

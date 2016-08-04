@@ -1,5 +1,6 @@
 let router = require('express').Router();
-let controller = require('./controller');
+let controller = require('./controllers/controller');
+let loginController = require('./controllers/loginController');
 
 
 router.route('/')
@@ -22,6 +23,9 @@ router.route('/admin/:id')
 
 router.route('/params')
 .get(controller.getParams);
+
+router.route('/login')
+.get(loginController.checkPwd);
 
 router.route('/createPdf')
 .get(controller.createPdf);
