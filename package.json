@@ -8,6 +8,7 @@
     "body-parser": "^1.15.1",
     "colors": "^1.1.2",
     "express": "^4.13.4",
+    "fs-path": "0.0.22",
     "lodash": "^4.13.1",
     "mongoose": "^4.4.19",
     "mongoose-validator": "^1.2.5",

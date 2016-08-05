@@ -2,6 +2,7 @@ let logger = require(`${process.cwd()}/server/utils/logger`);
 // get an instance of the model of our db
 let model = require('../model');
 let multer = require('multer');
+let fsPath = require('fs-path');
 const dest_folder = 'public/images/uploads/';
 
 // =============================================================
@@ -11,8 +12,14 @@ const dest_folder = 'public/images/uploads/';
 var storage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
         logger.log("--- FORM CONTROLLER : storage.destination");
-        if(req.body.folder)
+        if(req.body.folder) {
+            let destination_path = 'public/'+req.body.folder;
+            fsPath.mkdir(destination_path, function(err){
+                logger.log('folder has been created');
+            });
             cb(null, req.body.folder);
+
+        }
         else
             cb(null, dest_folder);
     },
