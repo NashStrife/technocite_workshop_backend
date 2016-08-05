@@ -1,26 +1,27 @@
-Dependencies: 
+DEPENDENCIES: 
 =============
-NodeJS
 
-node-gyp
-npm install -g node-gyp
+Base:
+	NodeJS
 
-On Windows:
-	Install windows build-tools:
-		npm install --global --production windows-build-tools
-	
-Python 2.x [normally installed with the build-tools on windows]
-https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
+For bcrypt:
+	node-gyp
+	npm install -g node-gyp
 
+	On Windows:
+		Install windows build-tools:
+			npm install --global --production windows-build-tools
+		
+	Python 2.x [normally installed with the build-tools on windows]
+	https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
 
+For phantom-pdf:
+	PhantomJS [ex: C:\Phantomjs]
+	http://phantomjs.org/
 
+====================================================================================================================
 
-
-PhantomJS [ex: C:\Phantomjs]
-http://phantomjs.org/
-
-
-Errors:
+ERRORS:
 =======
 If error with visual studio and bcrypt, Install Visual Studio:
 		https://www.visualstudio.com/products/visual-studio-community-vs
@@ -39,3 +40,12 @@ Remove entry for node-gyp in bundleDependencies
 Bump version number to 3.4.0 for node-gyp in dependencies
 Make a npm i in this directory to install node-gyp@3.4.0 to fix the problem
 Then npm install -g node-gyp
+
+====================================================================================================================
+
+IMAGE UPLOAD :
+==============
+
+THE TEXT FIELDS MUST BE SENT BEFORE THE IMAGE FIELDS !!!!
+Destination folder : req.body.folder
+File name : req.body.filename

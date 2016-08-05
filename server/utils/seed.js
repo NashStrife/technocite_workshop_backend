@@ -64,8 +64,7 @@ let companies = [{
             "bill" : 1,
             "quotation" : 1
         },
-        "createdAt" : Date.now(),
-        "updatedAt" : ""
+        "createdAt" : Date.now()
     }];
 
 let customers = [
@@ -137,8 +136,7 @@ let customers = [
             }
         ], 
         "memo" : "Le premier client",
-        "createdAt" : Date.now(),
-        "updatedAt" : ""
+        "createdAt" : Date.now()
     },{
         "name" : "Blizzard",
         "picture" : "",
@@ -198,8 +196,7 @@ let customers = [
                 "state" : false,
                 "quotation_id" : 1,
                 "createdAt" : "2016-05-12",
-                "deadline" : "2016-05-22",
-                "payedAt" : ""
+                "deadline" : "2016-05-22"
             }
         ], 
         "quotations" : [
@@ -214,8 +211,7 @@ let customers = [
             }
         ], 
         "memo" : "Très gros client",
-        "createdAt" : Date.now(),
-        "updatedAt" : ""
+        "createdAt" : Date.now()
     }
 ];
 let params = [{

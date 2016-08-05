@@ -3,13 +3,13 @@ let validate = require('mongoose-validator');
 let logger = require(`${process.cwd()}/server/utils/logger`);
 
 // define some condition for one validator thx to mongoose-validator
-let stringValidator = [
-    validate({
-        validator: 'isLength',
-        arguments: [3, 50],
-        message: '{VALUE} should be between {ARGS[0]} and {ARGS[1]} characters'
-    })
-];
+// let stringValidator = [
+//     validate({
+//         validator: 'isLength',
+//         arguments: [3, 50],
+//         message: '{VALUE} should be between {ARGS[0]} and {ARGS[1]} characters'
+//     })
+// ];
 
 let numberValidator = [
     validate({
@@ -22,18 +22,6 @@ let dateValidator = [
     validate({
         validator : "isDate",
         message : "Date should be in a Date format"
-    })
-];
-
-let quoteValidator = [
-    validate({
-        validator : "isNumeric",
-        message : "{VALUE} should be a numeric value"
-    }),
-    validate({
-        validator: 'isLength',
-        arguments: [0, 5],
-        message: '{VALUE} should be between {ARGS[0]} and {ARGS[1]} characters'
     })
 ];
 
@@ -90,7 +78,8 @@ let companyModel = function() {
                 },
                 number : {
                     type : Number,
-                    required : true
+                    required : true,
+                    validate : numberValidator
                 },
                 box : {
                     type : String
@@ -111,7 +100,8 @@ let companyModel = function() {
                 },
                 mail : {
                     type : String,
-                    required : true
+                    required : true,
+                    lowercase : true
                 },
                 phoneMain : {
                     type : String,
@@ -137,7 +127,8 @@ let companyModel = function() {
                     lowercase : true
                 },
                 company : {
-                    type : String
+                    type : String,
+                    lowercase : true
                 },
                 street : {
                     type : String,
@@ -146,7 +137,8 @@ let companyModel = function() {
                 },
                 number : {
                     type : Number,
-                    required : true
+                    required : true,
+                    validate : numberValidator
                 },
                 box : {
                     type : String
@@ -187,7 +179,8 @@ let companyModel = function() {
                 },
                 mail : {
                     type : String,
-                    required : true
+                    required : true,
+                    lowercase : true
                 },
                 phoneMain : {
                     type : String,
@@ -211,17 +204,21 @@ let companyModel = function() {
                     required : true
                 },
                 quotation_id : {
-                    type : Number
+                    type : Number,
+                    validate : numberValidator
                 },
                 createdAt : {
                     type : Date,
-                    required : true
+                    required : true,
+                    validate : dateValidator
                 },
                 deadLine : {
-                    type : Date
+                    type : Date,
+                    validate : dateValidator
                 },
                 payedAt : {
-                    type : Date
+                    type : Date,
+                    validate : dateValidator
                 }
             }],
             quotations : [{
@@ -235,7 +232,8 @@ let companyModel = function() {
                 },
                 createdAt : {
                     type : Date, 
-                    required : true
+                    required : true,
+                    validate : dateValidator
                 }
             }],
             memo : {
@@ -243,11 +241,13 @@ let companyModel = function() {
             },
             createdAt : {
                 type : Date,
-                required : true
+                required : true,
+                validate : dateValidator
             },
             updatedAt : {
                 type : Date,
-                default : Date.now
+                default : Date.now,
+                validate : dateValidator
             }
     });
 
@@ -284,7 +284,8 @@ let companyModel = function() {
                 },
                 number : {
                     type : Number,
-                    required : true
+                    required : true,
+                    validate : numberValidator
                 },
                 box : {
                     type : String
@@ -305,7 +306,8 @@ let companyModel = function() {
                 },
                 mail : {
                     type : String,
-                    required : true
+                    required : true,
+                    lowercase : true
                 },
                 phoneMain : {
                     type : String,
@@ -318,7 +320,8 @@ let companyModel = function() {
                     type : String
                 },
                 web : {
-                    type : String
+                    type : String,
+                    validate : urlValidator
                 }
             }, 
             contactPerson : {
@@ -342,7 +345,8 @@ let companyModel = function() {
                 },
                 mail : {
                     type : String,
-                    required : true
+                    required : true,
+                    lowercase : true
                 },
                 phoneMain : {
                     type : String,
@@ -381,10 +385,12 @@ let companyModel = function() {
             },
             templates : {
                 bill : {
-                    type : Number
+                    type : Number,
+                    validate : numberValidator
                 },
                 quotation : {
-                    type : Number
+                    type : Number,
+                    validate : numberValidator
                 },
                 rule : {
                     type : String
@@ -401,16 +407,19 @@ let companyModel = function() {
                     type : String
                 },
                 unitPrice : {
-                    type : Number
+                    type : Number,
+                    validate : numberValidator
                 }
             }],
             createdAt : {
                 type : Date,
-                required : true
+                required : true,
+                validate : dateValidator
             },
             updatedAt : {
                 type : Date,
-                default : Date.now
+                default : Date.now,
+                validate : dateValidator
             }
     });
 
@@ -425,7 +434,8 @@ let companyModel = function() {
             type : String
         }],
         vatRate : [{
-            type : Number
+            type : Number,
+            validate : numberValidator
         }]
     });
 
