@@ -4,7 +4,7 @@ DEPENDENCIES:
 Base:
 	NodeJS
 
-For bcrypt:
+For crypting:
 	node-gyp
 	npm install -g node-gyp
 
@@ -15,11 +15,7 @@ For bcrypt:
 	Python 2.x [normally installed with the build-tools on windows]
 	https://www.python.org/ftp/python/2.7.12/python-2.7.12.msi
 
-For phantom-pdf:
-	PhantomJS [ex: C:\Phantomjs]
-	http://phantomjs.org/
-
-====================================================================================================================
+===========================================================================================================
 
 ERRORS:
 =======
@@ -41,7 +37,7 @@ Bump version number to 3.4.0 for node-gyp in dependencies
 Make a npm i in this directory to install node-gyp@3.4.0 to fix the problem
 Then npm install -g node-gyp
 
-====================================================================================================================
+===========================================================================================================
 
 IMAGE UPLOAD :
 ==============

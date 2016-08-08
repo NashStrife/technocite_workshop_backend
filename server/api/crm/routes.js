@@ -2,6 +2,7 @@ let router = require('express').Router();
 let controller = require('./controllers/controller');
 let loginController = require('./controllers/loginController');
 let formController = require('./controllers/formController');
+let pdfController = require('./controllers/pdfController');
 
 
 router.route('/')
@@ -28,24 +29,15 @@ router.route('/params')
 router.route('/login')
 .get(loginController.checkPwd);
 
-router.route('/createPdf')
-.get(controller.createPdf);
-
-
 router.route('/upload')
 .post(formController.uploadImage);
 
+router.route('/createPdf')
+.post(pdfController.createPdf);
+
+// check if pdf creation works
+router.route('/testPdf')
+.post(pdfController.createPdf);
+
 
 module.exports = router;
-
-
-/** API path that will upload the files */
-// app.post('/upload', function(req, res) {
-//     upload(req,res,function(err){
-//         if(err){
-//                 res.json({error_code:1,err_desc:err});
-//                 return;
-//         }
-//             res.json({error_code:0,err_desc:null});
-//     });
-// });

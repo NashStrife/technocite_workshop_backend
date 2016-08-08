@@ -7,7 +7,7 @@ let bcrypt = require('bcrypt');
 
 const saltRounds = 10;
 
-logger.log('Seeding the Database');
+logger.log('--- SEED : Seeding the Database');
 
 let companies = [{
         "name" : "Ma société",
@@ -239,8 +239,9 @@ let params = [{
 
 
 customers.map(function(customer){
+    logger.log("--- SEED : Crypting Pwd");
     customer.contactPerson.pwd = bcrypt.hashSync(customer.contactPerson.pwd, saltRounds);
-    logger.log(customer.contactPerson.pwd);
+    // logger.log(customer.contactPerson.pwd);
 });
 
 

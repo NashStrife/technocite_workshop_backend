@@ -5,9 +5,6 @@ let model = require('../model');
 let bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-let phantomjs = require('phantomjs');
-let binPath = phantomjs.path;
-
 
 exports.getCustomer = function(req, res, next) {
     logger.log("--- CONTROLLER : get");
@@ -137,12 +134,3 @@ exports.getParams = function(req, res, next) {
         res.json(docs);
     });
 };
-
-
-
-
-
-exports.createPdf = function(req, res, next) {
-    logger.log("Create PDF");
-    
-}
