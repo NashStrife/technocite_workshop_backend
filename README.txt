@@ -3,6 +3,7 @@ DEPENDENCIES:
 
 Base:
 	NodeJS
+	Don't forget npm install
 
 For crypting:
 	node-gyp
@@ -43,5 +44,30 @@ IMAGE UPLOAD :
 ==============
 
 THE TEXT FIELDS MUST BE SENT BEFORE THE IMAGE FIELDS !!!!
-Destination folder : req.body.folder
-File name : req.body.filename
+Destination folder : req.body.folder [ex: "public/images/uploads"]
+File name : req.body.filename	[ex: "image01" don't add any extention !] 
+
+===========================================================================================================
+
+PDF CREATION:
+=============
+
+Post example:
+{ 
+	"file" : {
+		"template" : "public/documents/templates/body.hbs",
+		"folder" : "public/tmp",
+		"fileName" : "pdf01"
+	},
+	"data" : {
+		"name": "John", 
+		"hometown": "Somewhere, TX",
+		"kids": [{
+			"name": "Jimmy", 
+			"age": "12"
+		},{
+			"name": "Sally", 
+			"age": "4"
+		}]
+	}
+}
