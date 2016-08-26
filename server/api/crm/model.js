@@ -196,20 +196,17 @@ let companyModel = function() {
             },
             bills : [{
                 link : {
-                    type : String,
-                    required : true
+                    type : String
                 },
                 state : {
-                    type : Boolean,
-                    required : true
+                    type : Boolean
                 },
                 quotation_id : {
-                    type : Number,
+                    type : String,
                     validate : numberValidator
                 },
                 createdAt : {
                     type : Date,
-                    required : true,
                     validate : dateValidator
                 },
                 deadLine : {
@@ -223,16 +220,13 @@ let companyModel = function() {
             }],
             quotations : [{
                 link : {
-                    type : String,
-                    required : true
+                    type : String
                 },
                 state : {
-                    type : Boolean,
-                    required : true
+                    type : Boolean
                 },
                 createdAt : {
-                    type : Date, 
-                    required : true,
+                    type : Date,
                     validate : dateValidator
                 }
             }],
